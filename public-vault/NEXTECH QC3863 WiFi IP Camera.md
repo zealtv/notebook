@@ -23,7 +23,8 @@ rtsp://admin:admin@192.168.1.120:6554/stream_1
 - A MJPG ( i think?) stream.  640x360, low latency (approx 300ms)
 http://admin:admin@192.168.1.120:9527/videostream.cgi?user=admin&pwd=admin&resolution=32
 
-
+**Game changer.**
+![[Pasted image 20220129212255.png]]
 
 ### Specs
 Operating Temperature : -10.000000°C, 60.00000000°C
@@ -184,5 +185,3 @@ Snapshot is available here:
 http://admin:admin@192.168.1.120:9527/snapshot.cgi?user=admin&pwd=admin
 
 ---
-Game changer.
-![[Pasted image 20220129212255.png]]
