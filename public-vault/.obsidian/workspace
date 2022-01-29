@@ -1,0 +1,95 @@
+{
+  "main": {
+    "id": "7b8d9e9d9a4898c3",
+    "type": "split",
+    "children": [
+      {
+        "id": "656466726c72dd8a",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Connection Express.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "88926e16f012608f",
+    "type": "split",
+    "children": [
+      {
+        "id": "f5f644b494ccd76e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0c0fff83b1ac11fd",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "226533c9fd4f0dd3",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "ec453240f9dcf1d0",
+    "type": "split",
+    "children": [
+      {
+        "id": "c46c528bb4eb9f64",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6d442db5960df0dd",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Connection Express.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "656466726c72dd8a",
+  "lastOpenFiles": [
+    "Connection Express.md",
+    "Gyrosc to PD.md"
+  ]
+}
