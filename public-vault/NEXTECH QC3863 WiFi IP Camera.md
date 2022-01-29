@@ -4,27 +4,34 @@
 ![[Pasted image 20220129143605.png]]
 [Available here](https://www.jaycar.com.au/miniature-1080p-wifi-ip-camera-with-rechargeable-battery-and-ir-leds-for-night-vision/p/QC3863)
 
-The NEXTECH QC3863 is a small, battery powered, IP security camera, capable of recording to an internal SD card and being administrated via a mobile app.  Streaming video is able to be accessed via local network, though it is poorly documented.  This thing is insecure as shit,  keep it off the internet as much as possible.
+The NEXTECH QC3863 is a small, battery powered, IP security camera, capable of recording to an internal SD card and being administrated via a mobile app.  Streaming video is able to be accessed via local network, though it is poorly documented.  This thing is insecure as shit.  Keep it off the internet and untrusted networks as much as possible.
 
 #### Steps to access local streaming video
 - Use Tuya Smart iOS app to connect camera to wifi
 - you can disable the timestamp while you are in here
 - Find or set cameras IP address
 
-You can then access the following (my camera IP is 192.168.1.120)
+You can then access the following:
+(my camera IP was set to 192.168.1.120)
 
 - A (very basic) web interface:
 http://192.168.1.120:9527/index.htm
 
-- Two high latency (1000ms +) , high reslotion H264 streams:
+- Two high reslotion H264 streams, high latency (1000ms +) 
 rtsp://admin:admin@192.168.1.120:6554/stream_0
 rtsp://admin:admin@192.168.1.120:6554/stream_1
 
 - A MJPG ( i think?) stream.  640x360, low latency (approx 300ms)
 http://admin:admin@192.168.1.120:9527/videostream.cgi?user=admin&pwd=admin&resolution=32
 
-**Game changer.**
+- Single JPG frames, similar to above
+- http://admin:admin@192.168.1.120:9527/snapshot.cgi?user=admin&pwd=admin
+
+RTSP in TouchDesigner could be a bit of a game changer in cases where latency isn't critical.
 ![[Pasted image 20220129212255.png]]
+
+The camera's IR sensitivity interfears with colours. It's not a faithful representation but has a good vibe when giving you colour.
+![[Pasted image 20220129232525.png]]
 
 ### Specs
 Operating Temperature : -10.000000°C, 60.00000000°C
@@ -62,7 +69,7 @@ Thermal Detection PIR Sensor : true
 Apps to suit : Apple iOS, Android
 
 
-### Testing notes
+### Testing notes 🐉🐉🐉🐉🐉🐉
 
 ![[Pasted image 20220129175619.png]]
 
