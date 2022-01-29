@@ -1,8 +1,7 @@
 # Accessing local video streams from the NEXTECH QC3863 Wifi IP camera.
 
 
-![[/assets/Pasted image 20220129143605.png]]
-
+![](assets/Pasted%20image%2020220129143605.png)
 [Available here](https://www.jaycar.com.au/miniature-1080p-wifi-ip-camera-with-rechargeable-battery-and-ir-leds-for-night-vision/p/QC3863)
 
 The NEXTECH QC3863 is a small, battery powered, IP security camera, capable of recording to an internal SD card and being administrated via a mobile app.  Streaming video is able to be accessed via local network, though it is poorly documented.  This thing is insecure as shit.  Keep it off the internet and untrusted networks as much as possible.
