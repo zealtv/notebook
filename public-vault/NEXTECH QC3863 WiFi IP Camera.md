@@ -1,7 +1,7 @@
 # Accessing local video streams from the NEXTECH QC3863 Wifi IP camera.
 
 
-![[assets/Pasted image 20220129143605.png]]
+![[/assets/Pasted image 20220129143605.png]]
 
 [Available here](https://www.jaycar.com.au/miniature-1080p-wifi-ip-camera-with-rechargeable-battery-and-ir-leds-for-night-vision/p/QC3863)
 
