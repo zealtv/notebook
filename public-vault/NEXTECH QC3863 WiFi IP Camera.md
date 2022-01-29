@@ -184,4 +184,5 @@ Snapshot is available here:
 http://admin:admin@192.168.1.120:9527/snapshot.cgi?user=admin&pwd=admin
 
 ---
-
+Game changer.
+![[Pasted image 20220129212255.png]]
