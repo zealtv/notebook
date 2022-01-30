@@ -1,4 +1,9 @@
-# Accessing local video streams from the NEXTECH QC3863 Wifi IP camera.
+---
+title: Accessing local video streams from the NEXTECH QC3863 Wifi IP camera.
+when: 
+- 2022-01-30
+---
+
 
 
 ![](Pasted%20image%2020220129143605.png)

@@ -1,0 +1,5 @@
+---
+title: {{title}}
+when: 
+- {{date}}
+---

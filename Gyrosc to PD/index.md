@@ -1,8 +1,12 @@
-# gyrosc2pd.pd
+---
+title: gyrosc2pd.pd 
+when: 
+- 2022-01-30
+---
 
 ![Pasted image 20220129134527.png](Pasted%20image%2020220129134527.png)
 
-![](gyrosc2osc.pd)
+[download](gyrosc2pd.pd)
 
 This patch receives OSC data from (gyrosc)
 [gyrosc](https://www.bitshapesoftware.com/instruments/gyrosc/) , and tags them with a dynamic send object to be accesed globally via named receive objects. 
