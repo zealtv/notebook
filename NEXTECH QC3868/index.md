@@ -41,7 +41,7 @@ RTSP in TouchDesigner could be a bit of a game changer in cases where latency is
 
 ![](Pasted%20image%2020220129212255.png)
 
-The camera's IR sensitivity interfears with colours. It's not a faithful representation but has a good vibe when giving you colour.
+The camera's IR sensitivity interferes with colours. It's not a faithful representation but has a good vibe when giving you colour.
 
 ![](Pasted%20image%2020220129232525.png)
 
@@ -86,7 +86,7 @@ The camera's IR sensitivity interfears with colours. It's not a faithful represe
 
 ![](Pasted%20image%2020220129175619.png)
 Camera battery arrived very flat.  
-On boot the camera created an open network.  Windows did not easily connect.  Instead I used a (very polished) 3rd party app called **Tuya Smart**.
+On boot the camera created an open network.  Windows did not easily connect.  Instead, I used a (very polished) 3rd party app called **Tuya Smart**.
 
 👍 Camera is capable of simultaneous charging and operating
 👍 Camera connected easily  
@@ -95,7 +95,7 @@ On boot the camera created an open network.  Windows did not easily connect.  In
 
 Tuya Smart turns out to be better suited to home automation than camera configuration.
 
-Camera presented open network on reboot and iOS connected succesfully.
+Camera presented open network on reboot and iOS connected successfully.
 Network information reports router @ **192.168.66.1**
 Phone has been given  **192.168.66.100**
 Subnet mask is 255.255.255.0
@@ -106,7 +106,7 @@ The device has remembered the network and reconnects on boot.
 
 I can ping the camera.
 
-Using the BlueCAM search tool from the www.bluecam.cloud found in the specsheet, I was able to see this:
+Using the BlueCAM search tool from the www.bluecam.cloud found in the spec sheet, I was able to see this:
 
 ![](Pasted%20image%2020220129193822.png)
  ![](Pasted%20image%2020220129193858.png)
@@ -144,14 +144,14 @@ And we have the full res stream in VLC!
 ![](Pasted%20image%2020220129203154.png)
 rtsp://admin:admin@192.168.1.120:6554/stream_0
 rtsp://admin:admin@192.168.1.120:6554/stream_1
-Both streams have significant latency.  The stream shown in the browser is very snappy however.  I suspect this is mjpg as that was mentioned in the spec sheet.
+Both streams have significant latency.  The stream shown in the browser is very snappy, however.  I suspect this is mjpg as that was mentioned in the spec sheet.
 
 From the served admin page - the firefox link is making the call:
 ```
 javascript:signin_serverpush()
 ```
 
-Poking around furtherin the website served by the camera, the Wifi SSID and pasword are there in plain text.  Not great security.  It would be wise to assume anything these cameras see may as well be public.  
+Poking around further in the website served by the camera, the Wifi SSID and password are there in plain text.  Not great security.  It would be wise to assume anything these cameras see may as well be public.  
 
 in the contents of get_ipc_status.cgi
 ```
@@ -196,7 +196,7 @@ var linked_internet=0;
 var sim_type=0;
 var sim_iccid="";
 ```
-The variable linda_is_sleping is pretty odd.  Seaching the string does not throw any thing up on google.  Nor Github.  Weird. 
+The variable linda_is_sleping is pretty odd.  Searching the string does not throw anything up on google.  Nor Github.  Weird. 
 
 
 FOUND THE STREAM

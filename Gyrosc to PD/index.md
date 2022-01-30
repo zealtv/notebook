@@ -8,8 +8,7 @@ when:
 
 [download](gyrosc2pd.pd)
 
-This patch receives OSC data from (gyrosc)
-[gyrosc](https://www.bitshapesoftware.com/instruments/gyrosc/) , and tags them with a dynamic send object to be accesed globally via named receive objects. 
+This patch receives OSC data from [gyrosc](https://www.bitshapesoftware.com/instruments/gyrosc/) , and tags them with a dynamic send object to be accessed globally via named receive objects. 
 
 Available receives are shown on the right, and useful code snippets are provided for easy patching.
 
