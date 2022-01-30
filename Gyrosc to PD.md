@@ -1,6 +1,6 @@
 # gyrosc2pd.pd
 
-![Pasted image 20220129134527.png](assets/Pasted%20image%2020220129134527.png)
+![Pasted image 20220129134527.png](Pasted%20image%2020220129134527.png)
 
 [gyrosc2osc.pd](assets/gyrosc2osc.pd)
 

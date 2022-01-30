@@ -1,7 +1,7 @@
 # Accessing local video streams from the NEXTECH QC3863 Wifi IP camera.
 
 
-![](assets/Pasted%20image%2020220129143605.png)
+![](Pasted%20image%2020220129143605.png)
 [Available here](https://www.jaycar.com.au/miniature-1080p-wifi-ip-camera-with-rechargeable-battery-and-ir-leds-for-night-vision/p/QC3863)
 
 The NEXTECH QC3863 is a small, battery powered, IP security camera, capable of recording to an internal SD card and being administrated via a mobile app.  Streaming video is able to be accessed via local network, though it is poorly documented.  This thing is insecure as shit.  Keep it off the internet and untrusted networks as much as possible.
@@ -15,65 +15,71 @@ You can then access the following:
 (my camera IP was set to 192.168.1.120)
 
 - A (very basic) web interface:
+
 http://192.168.1.120:9527/index.htm
 
 - Two high reslotion H264 streams, high latency (1000ms +) 
+
 rtsp://admin:admin@192.168.1.120:6554/stream_0
+
 rtsp://admin:admin@192.168.1.120:6554/stream_1
 
 - A MJPG ( i think?) stream.  640x360, low latency (approx 300ms)
+
 http://admin:admin@192.168.1.120:9527/videostream.cgi?user=admin&pwd=admin&resolution=32
 
 - Single JPG frames, similar to above
-- http://admin:admin@192.168.1.120:9527/snapshot.cgi?user=admin&pwd=admin
+
+http://admin:admin@192.168.1.120:9527/snapshot.cgi?user=admin&pwd=admin
 
 RTSP in TouchDesigner could be a bit of a game changer in cases where latency isn't critical.
 
-![](assets/Pasted%20image%2020220129212255.png)
+![](Pasted%20image%2020220129212255.png)
+
 The camera's IR sensitivity interfears with colours. It's not a faithful representation but has a good vibe when giving you colour.
-![](assets/Pasted%20image%2020220129232525.png)
+
+![](Pasted%20image%2020220129232525.png)
 
 
 ### Specs
-Operating Temperature : -10.000000°C, 60.00000000°C
-Storage Media Type : microSD
-Maximum Capacity : 64.00000000GB
-Wireless Standard : 802.11b, 802.11g, 802.11n
-Length : 33.00000000mm
-Width : 33.00000000mm
-Height : 33.00000000mm
-Weight : 36.00000000g
-PSU Powers : Camera
-DC Plugpack Voltage : 5.00000000V
-DC Current Draw : 1.00000000A
-Suitable PSU Included : true
-DG UN Number : 3481.00000000
-DG Ship Name : 3481 - Lithium Ion Batteries Packed In Equipment
-DG Class : 9.00000000
-DG Pack Group : II - Medium Danger
-DG Hazardous Chemical Code : 4W
-Battery Watt Hour Rating (Required for Lithium Batteries) : 2.96000000Wh
-Dangerous Road Freight : false
-Dangerous Air Freight : true
-Type of Camera : Miniature
-Output Signal : Digital Wireless
-Resolution : 1080p (1920 x 1080)
-In-built Microphone : false
-Lens Diameter : 2.40000000mm
-Lens Angle : 138.00000000°
-Focal Length of cam/lens : 2.90000000mm, 2.90000000mm
-Frame Rate : 10.00000000fps, 25.00000000fps
-Infrared Enabled : true
-Infrared Range : 5.00000000m
-Number of LEDs : 4.00000000pc
-Thermal Detection PIR Sensor : true
-Apps to suit : Apple iOS, Android
+- Operating Temperature : -10.000000°C, 60.00000000°C
+- Storage Media Type : microSD
+- Maximum Capacity : 64.00000000GB
+- Wireless Standard : 802.11b, 802.11g, 802.11n
+- Length : 33.00000000mm
+- Width : 33.00000000mm
+- Height : 33.00000000mm
+- Weight : 36.00000000g
+- PSU Powers : Camera
+- DC Plugpack Voltage : 5.00000000V
+- DC Current Draw : 1.00000000A
+- Suitable PSU Included : true
+- DG UN Number : 3481.00000000
+- DG Ship Name : 3481 - Lithium Ion Batteries Packed In Equipment
+- DG Class : 9.00000000
+- DG Pack Group : II - Medium Danger
+- DG Hazardous Chemical Code : 4W
+- Battery Watt Hour Rating (Required for Lithium Batteries) : 2.96000000Wh
+- Dangerous Road Freight : false
+- Dangerous Air Freight : true
+- Type of Camera : Miniature
+- Output Signal : Digital Wireless
+- Resolution : 1080p (1920 x 1080)
+- In-built Microphone : false
+- Lens Diameter : 2.40000000mm
+- Lens Angle : 138.00000000°
+- Focal Length of cam/lens : 2.90000000mm, 2.90000000mm
+- Frame Rate : 10.00000000fps, 25.00000000fps
+- Infrared Enabled : true
+- Infrared Range : 5.00000000m
+- Number of LEDs : 4.00000000pc
+- - Apps to suit : Apple iOS, Android
 
 
 ### Testing notes 🐉🐉🐉🐉🐉🐉
 
 
-![](assets/Pasted%20image%2020220129175619.png)
+![](Pasted%20image%2020220129175619.png)
 Camera battery arrived very flat.  
 On boot the camera created an open network.  Windows did not easily connect.  Instead I used a (very polished) 3rd party app called **Tuya Smart**.
 
@@ -97,8 +103,8 @@ I can ping the camera.
 
 Using the BlueCAM search tool from the www.bluecam.cloud found in the specsheet, I was able to see this:
 
-![](assets/Pasted%20image%2020220129193822.png)
- ![](assets/Pasted%20image%2020220129193858.png)
+![](Pasted%20image%2020220129193822.png)
+ ![](Pasted%20image%2020220129193858.png)
 Revealing RTSP streams!
 
 THIS ADDRESS GAVE ME AN ADMIN SCREEN
@@ -109,11 +115,11 @@ user: admin
 pass: admin
 ```
 
-![](assets/Pasted%20image%2020220129200015.png)
+![](Pasted%20image%2020220129200015.png)
 The firefox stream viewer looks 720p.  Lacenty is good.  Deals with low light well.
 
-![](assets/Pasted%20image%2020220129200135.png)
-![](assets/Pasted%20image%2020220129200218.png)
+![](Pasted%20image%2020220129200135.png)
+![](Pasted%20image%2020220129200218.png)
 No instantly apparent configuration settings for joining WiFi.
 Would ideally like to join WiFi without broadcasting a stream to a third party.
 
@@ -125,12 +131,12 @@ Pairing light goes solid after viewing QR code.
 Gave the camera a static local ip in router and rebooted camera.
 Camera reconnected with reserved ip.
 
-![](assets/Pasted%20image%2020220129202750.png)
+![](Pasted%20image%2020220129202750.png)
 
 Progress.
 
 And we have the full res stream in VLC!
-![](assets/Pasted%20image%2020220129203154.png)
+![](Pasted%20image%2020220129203154.png)
 rtsp://admin:admin@192.168.1.120:6554/stream_0
 rtsp://admin:admin@192.168.1.120:6554/stream_1
 Both streams have significant latency.  The stream shown in the browser is very snappy however.  I suspect this is mjpg as that was mentioned in the spec sheet.
