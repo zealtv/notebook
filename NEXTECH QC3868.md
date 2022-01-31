@@ -6,7 +6,7 @@ when:
 
 
 
-![](Pasted%20image%2020220129143605.png)
+![](assets/Pasted%20image%2020220129143605.png)
 [Available here](https://www.jaycar.com.au/miniature-1080p-wifi-ip-camera-with-rechargeable-battery-and-ir-leds-for-night-vision/p/QC3863)
 
 
@@ -41,11 +41,11 @@ http://admin:admin@192.168.1.120:9527/snapshot.cgi?user=admin&pwd=admin
 
 RTSP in TouchDesigner could be a bit of a game changer in cases where latency isn't critical.
 
-![](Pasted%20image%2020220129212255.png)
+![](assets/Pasted%20image%2020220129212255.png)
 
 The camera's IR sensitivity interferes with colours. It's not a faithful representation but has a good vibe when giving you colour.
 
-![](Pasted%20image%2020220129232525.png)
+![](assets/Pasted%20image%2020220129232525.png)
 
 
 ### Specs
@@ -86,7 +86,7 @@ The camera's IR sensitivity interferes with colours. It's not a faithful represe
 ### Testing notes 🐉🐉🐉🐉🐉🐉
 
 
-![](Pasted%20image%2020220129175619.png)
+![](assets/Pasted%20image%2020220129175619.png)
 Camera battery arrived very flat.  
 On boot the camera created an open network.  Windows did not easily connect.  Instead, I used a (very polished) 3rd party app called **Tuya Smart**.
 
@@ -110,8 +110,8 @@ I can ping the camera.
 
 Using the BlueCAM search tool from the www.bluecam.cloud found in the spec sheet, I was able to see this:
 
-![](Pasted%20image%2020220129193822.png)
- ![](Pasted%20image%2020220129193858.png)
+![](assets/Pasted%20image%2020220129193822.png)
+ ![](assets/Pasted%20image%2020220129193858.png)
 Revealing RTSP streams!
 
 THIS ADDRESS GAVE ME AN ADMIN SCREEN
@@ -122,11 +122,11 @@ user: admin
 pass: admin
 ```
 
-![](Pasted%20image%2020220129200015.png)
+![](assets/Pasted%20image%2020220129200015.png)
 The firefox stream viewer looks 720p.  Lacenty is good.  Deals with low light well.
 
-![](Pasted%20image%2020220129200135.png)
-![](Pasted%20image%2020220129200218.png)
+![](assets/Pasted%20image%2020220129200135.png)
+![](assets/Pasted%20image%2020220129200218.png)
 No instantly apparent configuration settings for joining WiFi.
 Would ideally like to join WiFi without broadcasting a stream to a third party.
 
@@ -138,12 +138,12 @@ Pairing light goes solid after viewing QR code.
 Gave the camera a static local ip in router and rebooted camera.
 Camera reconnected with reserved ip.
 
-![](Pasted%20image%2020220129202750.png)
+![](assets/Pasted%20image%2020220129202750.png)
 
 Progress.
 
 And we have the full res stream in VLC!
-![](Pasted%20image%2020220129203154.png)
+![](assets/Pasted%20image%2020220129203154.png)
 rtsp://admin:admin@192.168.1.120:6554/stream_0
 rtsp://admin:admin@192.168.1.120:6554/stream_1
 Both streams have significant latency.  The stream shown in the browser is very snappy, however.  I suspect this is mjpg as that was mentioned in the spec sheet.
