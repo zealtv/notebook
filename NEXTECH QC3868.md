@@ -1,9 +1,7 @@
 ---
-title: Accessing local video streams from the NEXTECH QC3863 Wifi IP camera.
-when: 
-- 2022-01-30
+title: NEXTECH QC3868
+date: 2022-01-31T20:07
 ---
-
 
 
 ![](assets/Pasted%20image%2020220129143605.png)
@@ -208,3 +206,4 @@ Snapshot is available here:
 http://admin:admin@192.168.1.120:9527/snapshot.cgi?user=admin&pwd=admin
 
 ---
+[gyrosc 2 pd](gyrosc%202%20pd.md)

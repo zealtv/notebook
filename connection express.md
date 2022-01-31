@@ -1,7 +1,7 @@
 ---
 title: Connection Express
-when: 
-- 2022-01-30
+date: 2022-01-31
+draft: true
 ---
 ## Interactive Train System
 

@@ -1,6 +1,5 @@
 ---
 title: {{title}}
-when: 
-- {{date}}
-draft: "true"
+date: {{date:YYYY-MM-DD}}T{{time:HH:mm}}
+draft: true
 ---

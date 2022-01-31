@@ -1,7 +1,6 @@
 ---
-title: gyrosc2pd.pd 
-when: 
-- 2022-01-30
+title: gyrosc 2 pd
+date: 2022-01-31T20:07
 ---
 
 ![Pasted image 20220129134527.png](assets/Pasted%20image%2020220129134527.png)
