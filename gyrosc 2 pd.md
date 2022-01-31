@@ -12,4 +12,3 @@ This patch receives OSC data from [gyrosc](https://www.bitshapesoftware.com/inst
 Available receives are shown on the right, and useful code snippets are provided for easy patching.
 
 The default port is 9999.
-

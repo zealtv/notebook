@@ -1,15 +1,14 @@
 ---
 title: NEXTECH QC3868
-date: 2022-01-31T20:07
+date: 2022-01-31
 ---
 
 
 ![](assets/Pasted%20image%2020220129143605.png)
-[Available here](https://www.jaycar.com.au/miniature-1080p-wifi-ip-camera-with-rechargeable-battery-and-ir-leds-for-night-vision/p/QC3863)
 
 
 
-The NEXTECH QC3863 is a small, battery powered, IP security camera, capable of recording to an internal SD card and being administrated via a mobile app.  Streaming video is able to be accessed via local network, though it is poorly documented.  This thing is insecure as shit.  Keep it off the internet and untrusted networks as much as possible.
+The NEXTECH QC3863 ([available here](https://www.jaycar.com.au/miniature-1080p-wifi-ip-camera-with-rechargeable-battery-and-ir-leds-for-night-vision/p/QC3863)) is a small, battery powered, IP security camera, capable of recording to an internal SD card and being administrated via a mobile app.  Streaming video is able to be accessed via local network, though it is poorly documented.  This thing is insecure as shit.  Keep it off the internet and untrusted networks as much as possible.
 
 #### Steps to access local streaming video
 - Use Tuya Smart iOS app to connect camera to wifi
@@ -23,7 +22,7 @@ You can then access the following:
 
 http://192.168.1.120:9527/index.htm
 
-- Two high reslotion H264 streams, high latency (1000ms +) 
+- Two high resolution H264 streams, high latency (1000ms +) 
 
 rtsp://admin:admin@192.168.1.120:6554/stream_0
 
@@ -204,6 +203,3 @@ http://admin:admin@192.168.1.120:9527/videostream.cgi?user=admin&pwd=admin&resol
 
 Snapshot is available here:
 http://admin:admin@192.168.1.120:9527/snapshot.cgi?user=admin&pwd=admin
-
----
-[gyrosc 2 pd](gyrosc%202%20pd.md)

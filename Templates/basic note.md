@@ -1,5 +1,5 @@
 ---
 title: {{title}}
-date: {{date:YYYY-MM-DD}}T{{time:HH:mm}}
+date: {{date:YYYY-MM-DD}}
 draft: true
 ---
