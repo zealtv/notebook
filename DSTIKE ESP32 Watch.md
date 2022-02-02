@@ -1,6 +1,7 @@
 ---
 title: DSTIKE ESP32 Watch
 date: 2022-02-02
+lastmod: 2022-02-02T22:46:07+11:00
 draft: false
 ---
 
@@ -14,27 +15,31 @@ I'm interested in using the device as an OSC logger (and perhaps later playback)
 
 I am developing an arduino application to achieve this. In its current state, the sketch will receive all messages on port 9000.  It will iterate over an array if it exists, and  any integers, floats, or doubles will be converted to floats and displayed on the screen.  If there are more than 3 elements in the array, they will not be visible.
 
-- Receiving OSC messages on port: 9000
+### usage
 - Follow onscreen instructions to connect to network.
 - One of the buttons on the left of the unit resets the Wifi configiuration
-- Require libraries:
-	- OSC https://github.com/CNMAT/OSC
-	- Autoconnect https://github.com/hieromon/AutoConnect
-	- OLED manager https://github.com/ThingPulse/esp8266-oled-ssd1306
-	- NeoPixel https://github.com/adafruit/Adafruit_NeoPixel
+- OSC messages are received on port: 9000
 
-[💾 download](assets/esp-watch-demo/esp-watch-demo.ino)
+### Required libraries:
+- OSC https://github.com/CNMAT/OSC
+- Autoconnect https://github.com/hieromon/AutoConnect
+- OLED manager https://github.com/ThingPulse/esp8266-oled-ssd1306
+- NeoPixel https://github.com/adafruit/Adafruit_NeoPixel
 
-Next steps:
-[ ] press button to open file on SD card.
-[ ] write incoming OSC messages to SD card.
-[ ] press button to close file on SD card.
-[ ] display filename and recording state on screen
-[ ] indicate if device is receiving data, and other information via NeoPixel
+#### [💾 download](assets/esp-watch-demo/esp-watch-demo.ino)
+
+
+Future steps:
+-  press button to open file on SD card.
+-  write incoming OSC messages to SD card.
+-  press button to close file on SD card.
+-  display filename and recording state on screen
+-  indicate if device is receiving data, and other information via NeoPixel
+
+If you are starting developing from scratch with one of these watches, read on...
 
 ---
 
-If you are starting developing from scratch with one of these watches, read on...
 
 # Setting up the initial development environment
 This is especially for the DSTIKE esp32 OLED device.

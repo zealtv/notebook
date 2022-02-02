@@ -1,6 +1,7 @@
 ---
 title: NEXTECH QC3868
 date: 2022-01-31
+lastmod: 2022-02-02T22:34:40+11:00
 ---
 
 
@@ -20,32 +21,33 @@ You can then access the following:
 
 - A (very basic) web interface:
 
-http://192.168.1.120:9527/index.htm
+[http://192.168.1.120:9527/index.htm](http://192.168.1.120:9527/index.htm)
 
 - Two high resolution H264 streams, high latency (1000ms +) 
 
-rtsp://admin:admin@192.168.1.120:6554/stream_0
-
-rtsp://admin:admin@192.168.1.120:6554/stream_1
+[rtsp://admin:admin@192.168.1.120:6554/stream_0](rtsp://admin:admin@192.168.1.120:6554/stream_0)
+[rtsp://admin:admin@192.168.1.120:6554/stream_1](rtsp://admin:admin@192.168.1.120:6554/stream_1)
 
 - A MJPG ( i think?) stream.  640x360, low latency (approx 300ms)
 
-http://admin:admin@192.168.1.120:9527/videostream.cgi?user=admin&pwd=admin&resolution=32
+[http://admin:admin@192.168.1.120:9527/videostream.cgi?user=admin&pwd=admin&resolution=32](http://admin:admin@192.168.1.120:9527/videostream.cgi?user=admin&pwd=admin&resolution=32)
 
 - Single JPG frames, similar to above
 
-http://admin:admin@192.168.1.120:9527/snapshot.cgi?user=admin&pwd=admin
+[http://admin:admin@192.168.1.120:9527/snapshot.cgi?user=admin&pwd=admin](http://admin:admin@192.168.1.120:9527/snapshot.cgi?user=admin&pwd=admin)
+
+
+![](assets/Pasted%20image%2020220129212255.png)
 
 RTSP in TouchDesigner could be a bit of a game changer in cases where latency isn't critical.
 
-![](assets/Pasted%20image%2020220129212255.png)
 
 The camera's IR sensitivity interferes with colours. It's not a faithful representation but has a good vibe when giving you colour.
 
 ![](assets/Pasted%20image%2020220129232525.png)
 
 
-### Specs
+## Specs
 - Operating Temperature : -10.000000°C, 60.00000000°C
 - Storage Media Type : microSD
 - Maximum Capacity : 64.00000000GB
@@ -77,20 +79,23 @@ The camera's IR sensitivity interferes with colours. It's not a faithful represe
 - Infrared Enabled : true
 - Infrared Range : 5.00000000m
 - Number of LEDs : 4.00000000pc
-- - Apps to suit : Apple iOS, Android
+- Apps to suit : Apple iOS, Android
 
+---
 
-### Testing notes 🐉🐉🐉🐉🐉🐉
+## Testing notes 🐉🐉🐉🐉🐉🐉
 
 
 ![](assets/Pasted%20image%2020220129175619.png)
+
 Camera battery arrived very flat.  
+
 On boot the camera created an open network.  Windows did not easily connect.  Instead, I used a (very polished) 3rd party app called **Tuya Smart**.
 
-👍 Camera is capable of simultaneous charging and operating
-👍 Camera connected easily  
-👍 Video quality is good
-👎 Latency is high on default camera settings and  my medium strength network
+- 👍 Camera is capable of simultaneous charging and operating
+- 👍 Camera connected easily  
+- 👍 Video quality is good
+- 👎 Latency is high on default camera settings and  my medium strength network
 
 Tuya Smart turns out to be better suited to home automation than camera configuration.
 
@@ -109,6 +114,7 @@ Using the BlueCAM search tool from the www.bluecam.cloud found in the spec sheet
 
 ![](assets/Pasted%20image%2020220129193822.png)
  ![](assets/Pasted%20image%2020220129193858.png)
+
 Revealing RTSP streams!
 
 THIS ADDRESS GAVE ME AN ADMIN SCREEN

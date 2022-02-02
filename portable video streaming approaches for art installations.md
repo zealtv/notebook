@@ -1,6 +1,7 @@
 ---
 title: portable video streaming approaches for art installations
 date: 2022-01-31
+lastmod: 2022-02-02T22:08:17+11:00
 ---
 
 I am surveying small, locally streaming cameras for applications in art installations such as capturing video to process, present, or to use for tracking, analysis, or interaction.

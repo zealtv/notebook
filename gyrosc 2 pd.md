@@ -1,6 +1,7 @@
 ---
 title: gyrosc 2 pd
 date: 2022-01-31T20:07
+lastmod: 2022-02-02T22:09:01+11:00
 ---
 
 ![Pasted image 20220129134527.png](assets/Pasted%20image%2020220129134527.png)
