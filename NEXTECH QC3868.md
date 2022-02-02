@@ -126,10 +126,12 @@ pass: admin
 ```
 
 ![](assets/Pasted%20image%2020220129200015.png)
+
 The firefox stream viewer looks 720p.  Lacenty is good.  Deals with low light well.
 
 ![](assets/Pasted%20image%2020220129200135.png)
 ![](assets/Pasted%20image%2020220129200218.png)
+
 No instantly apparent configuration settings for joining WiFi.
 Would ideally like to join WiFi without broadcasting a stream to a third party.
 
@@ -146,9 +148,13 @@ Camera reconnected with reserved ip.
 Progress.
 
 And we have the full res stream in VLC!
+
 ![](assets/Pasted%20image%2020220129203154.png)
-rtsp://admin:admin@192.168.1.120:6554/stream_0
-rtsp://admin:admin@192.168.1.120:6554/stream_1
+
+[rtsp://admin:admin@192.168.1.120:6554/stream_0](rtsp://admin:admin@192.168.1.120:6554/stream_0)
+
+[rtsp://admin:admin@192.168.1.120:6554/stream_1](rtsp://admin:admin@192.168.1.120:6554/stream_1)
+
 Both streams have significant latency.  The stream shown in the browser is very snappy, however.  I suspect this is mjpg as that was mentioned in the spec sheet.
 
 From the served admin page - the firefox link is making the call:
@@ -158,7 +164,7 @@ javascript:signin_serverpush()
 
 Poking around further in the website served by the camera, the Wifi SSID and password are there in plain text.  Not great security.  It would be wise to assume anything these cameras see may as well be public.  
 
-in the contents of get_ipc_status.cgi
+in the contents of **get_ipc_status.cgi**
 ```
 var sdtotal=0;
 var sdfree=0;
@@ -205,7 +211,7 @@ The variable linda_is_sleping is pretty odd.  Searching the string does not thro
 
 
 FOUND THE STREAM
-http://admin:admin@192.168.1.120:9527/videostream.cgi?user=admin&pwd=admin&resolution=32
+[http://admin:admin@192.168.1.120:9527/videostream.cgi?user=admin&pwd=admin&resolution=32](http://admin:admin@192.168.1.120:9527/videostream.cgi?user=admin&pwd=admin&resolution=32)
 
-Snapshot is available here:
-http://admin:admin@192.168.1.120:9527/snapshot.cgi?user=admin&pwd=admin
+JPG snapshots are available here:
+[http://admin:admin@192.168.1.120:9527/snapshot.cgi?user=admin&pwd=admin](http://admin:admin@192.168.1.120:9527/snapshot.cgi?user=admin&pwd=admin)
