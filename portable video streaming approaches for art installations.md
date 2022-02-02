@@ -1,11 +1,13 @@
 ---
-title: portable video streaming approaches for arts installations
+title: portable video streaming approaches for art installations
 date: 2022-01-31
 ---
 
 I am surveying small, locally streaming cameras for applications in art installations such as capturing video to process, present, or to use for tracking, analysis, or interaction.
 
+![](assets/Pasted%20image%2020220129143605.png)
 Recently I tested the [Nextech mini wifi camera](NEXTECH%20QC3868.md)
+
 
 [This is a good example of a Raspberry pi approach](https://www.reddit.com/r/raspberry_pi/comments/ppu00m/prototype_low_latency_wireless_streaming_camera/) that focusses on low latency.  This would be particularly helpful when using for tracking. The Nextech camera
 
