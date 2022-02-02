@@ -2,16 +2,16 @@
 #include <WebServer.h>
 #include <AutoConnect.h>
 #include <Adafruit_NeoPixel.h>
-#include "SH1106.h" 
+#include "SH1106.h"
 //OSC
 #include <WiFiUdp.h>
 #include <OSCMessage.h>
 #include <OSCBundle.h>
 #include <OSCData.h>
 
-#define BUTTON_PRESS   18   
-#define BUTTON_LEFT    5                          
-#define BUTTON_RIGHT   19                                                   
+#define BUTTON_PRESS   18
+#define BUTTON_LEFT    5
+#define BUTTON_RIGHT   19
 #define BUZZER 32
 #define BUTTON_ON 22
 #define BUTTON_OFF 23
@@ -20,16 +20,16 @@
 #define PIXEL_COUNT 1
 
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(PIXEL_COUNT, PIXEL_PIN, NEO_GRB + NEO_KHZ800);
-SH1106  display(0x3c,17,16);
+SH1106  display(0x3c, 17, 16);
 
-WebServer Server;          
+WebServer Server;
 AutoConnect Portal(Server);
 AutoConnectConfig Config;
 
 WiFiUDP Udp;                                // A UDP instance to let us send and receive packets over UDP
 const IPAddress outIp(255, 255, 255, 255);  // remote IP of your computer
 const unsigned int outPort = 8000;          // remote port to receive OSC
-const unsigned int localPort = 9000;        // local port to listen for OSC packets 
+const unsigned int localPort = 9000;        // local port to listen for OSC packets
 String macString = "";
 String oscAddress;
 OSCErrorCode error;
@@ -51,22 +51,22 @@ void setup() {
   pinMode(BUTTON_RIGHT, INPUT_PULLUP);
   pinMode(BUTTON_ON, INPUT_PULLUP);
   pinMode(BUTTON_OFF, INPUT_PULLUP);
-  pinMode(BUZZER,OUTPUT);
-  pinMode(FLASHLIGHT,OUTPUT);
-  digitalWrite(FLASHLIGHT,HIGH);
+  pinMode(BUZZER, OUTPUT);
+  pinMode(FLASHLIGHT, OUTPUT);
+  digitalWrite(FLASHLIGHT, HIGH);
   display.init();
   display.flipScreenVertically();
   display.clear();
 
   strip.begin();
   strip.show(); // Initialize all pixels to 'off'
-  
+
   Serial.println("done :)");
 
   //config autoconnect.  see here: https://hieromon.github.io/AutoConnect/adconnection.html
   Config.beginTimeout = 15000; // Timeout sets to 15[s]
   Config.immediateStart = false;
-  
+
   Config.apid = "packetPunk";
   Config.psk  = "packetPunk";
   Portal.config(Config);
@@ -75,11 +75,11 @@ void setup() {
 
 
 // initiate connection
-void initConnection(){
+void initConnection() {
   Server.on("/", rootPage);
   strip.setPixelColor(0, 70, 50, 0); // Yellow indicates not yet connected
   strip.show();
-  
+
   display.clear();
   display.setFont(ArialMT_Plain_10);
   display.drawString( 0, 0, "Ready to connect");
@@ -90,7 +90,7 @@ void initConnection(){
 
   //this will hang until true:
   if (Portal.begin()) {
-    Serial.println("WiFi connected: " + WiFi.localIP().toString()); 
+    Serial.println("WiFi connected: " + WiFi.localIP().toString());
     Serial.println("Starting UDP");
     Udp.begin(localPort);
     //set led to green
@@ -109,27 +109,27 @@ void initConnection(){
 void loop() {
   getOSC();
   Portal.handleClient();
-  
-  if(digitalRead(BUTTON_LEFT)==LOW){
-    soundone();
+
+  if (digitalRead(BUTTON_LEFT) == LOW) {
+    //    soundone();
   }
-  
-  if(digitalRead(BUTTON_RIGHT)==LOW){
-    soundtwo();
+
+  if (digitalRead(BUTTON_RIGHT) == LOW) {
+    //    soundtwo();
   }
-  
-  if(digitalRead(BUTTON_ON)==LOW){
-    digitalWrite(FLASHLIGHT,LOW);
+
+  if (digitalRead(BUTTON_ON) == LOW) {
+    digitalWrite(FLASHLIGHT, LOW);
   }
-  
-  if(digitalRead(BUTTON_OFF)==LOW){
-    digitalWrite(FLASHLIGHT,HIGH);
+
+  if (digitalRead(BUTTON_OFF) == LOW) {
+    digitalWrite(FLASHLIGHT, HIGH);
     //reset audtoconnect
     Config.immediateStart = true;
     Portal.config(Config);
     initConnection();
   }
-  
+
   bool newState = digitalRead(BUTTON_PRESS);
   // Check if state changed from high to low (button press).
   if (newState == LOW && oldState == HIGH) {
@@ -138,7 +138,7 @@ void loop() {
     // Check if button is still low after debounce.
     newState = digitalRead(BUTTON_PRESS);
     if (newState == LOW) {
-      //dial button is pressed 
+      //dial button is pressed
       //turn off LED
       strip.setPixelColor(0, 0, 0, 0);  // Black
       strip.show();
@@ -149,7 +149,7 @@ void loop() {
   oldState = newState;
 }
 
-void getOSC(){
+void getOSC() {
   OSCMessage msg;
   int size = Udp.parsePacket();
 
@@ -159,8 +159,11 @@ void getOSC(){
     while (size--) {
       msg.fill(Udp.read());
     }
+    
     if (!msg.hasError()) {
-      msg.dispatch("/led", led);
+      //send all OSC messages
+      receiveOSC(msg);
+
     } else {
       error = msg.getError();
       Serial.print("error: ");
@@ -169,52 +172,87 @@ void getOSC(){
   }
 }
 
-void led(OSCMessage &msg) {
-  int ledState = msg.getInt(0);
+void receiveOSC(OSCMessage &msg) {
+  int msgSize = msg.size();
+  String oscAddress;
+  char addressBuffer[99];
+  msg.getAddress(addressBuffer);
+
+
+  
   display.clear();
   display.setFont(ArialMT_Plain_10);
-  display.drawString( 0, 0, "RECEIVED:");
-  display.drawString( 0, 26, "/led " + String(ledState));
+  display.drawString( 0, 0, "[R]");
+
+  //draw addres to screen
+  display.drawString( 26, 0, addressBuffer);
+  
+  
+  //the following converts ints, floats, and doubles to float, and draws them to screen.
+  for(int i = 0; i < msgSize; i++){
+
+    float thisVal;
+
+    if(msg.isInt(i)){
+      thisVal = msg.getInt(i);
+    }
+    else if(msg.isFloat(i)){
+      thisVal = msg.getFloat(i);
+    }
+    else if(msg.isDouble(i)){
+      thisVal = msg.getDouble(i);
+    }
+    
+    display.drawString( 0, 13 + 13 * i, String(thisVal));
+    
+  }
+  
+  
   display.display();
   strip.setPixelColor(0, 0, 0, 10);  // Black
   strip.show();
 }
 
 
-void soundone(){
-  unsigned char i,j;
-  for(i=0;i<5;i++){
-    for(i=0;i<200;i++){
-      digitalWrite(BUZZER,HIGH);
+
+
+
+
+//-----------------------------------------------------
+void soundone() {
+  unsigned char i, j;
+  for (i = 0; i < 5; i++) {
+    for (i = 0; i < 200; i++) {
+      digitalWrite(BUZZER, HIGH);
       delay(1);//Change this could adjust voice
-      digitalWrite(BUZZER,LOW);
+      digitalWrite(BUZZER, LOW);
       delay(1);
     }
 
-    for(i=0;i<100;i++){
-      digitalWrite(BUZZER,HIGH);
+    for (i = 0; i < 100; i++) {
+      digitalWrite(BUZZER, HIGH);
       delay(2);
-      digitalWrite(BUZZER,LOW);
+      digitalWrite(BUZZER, LOW);
       delay(2);
     }
   }
 }
 
-void soundtwo(){
-  unsigned char i,j;
+void soundtwo() {
+  unsigned char i, j;
 
-  for(i=0;i<5;i++){
-    for(i=0;i<100;i++){
-      digitalWrite(BUZZER,HIGH);
+  for (i = 0; i < 5; i++) {
+    for (i = 0; i < 100; i++) {
+      digitalWrite(BUZZER, HIGH);
       delay(2);//Change this could adjust voice
-      digitalWrite(BUZZER,LOW);
+      digitalWrite(BUZZER, LOW);
       delay(2);
     }
 
-    for(i=0;i<200;i++){
-      digitalWrite(BUZZER,HIGH);
+    for (i = 0; i < 200; i++) {
+      digitalWrite(BUZZER, HIGH);
       delay(1);
-      digitalWrite(BUZZER,LOW);
+      digitalWrite(BUZZER, LOW);
       delay(1);
     }
   }

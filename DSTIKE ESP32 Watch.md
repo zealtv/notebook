@@ -12,11 +12,31 @@ There are a few different versions, some in this watch form factor, some as sing
 
 I'm interested in using the device as an OSC logger (and perhaps later playback) device, for capturing streaming OSC messages in on-body applications.
 
-As of writing this, I have the device receiving a predefined OSC message and displaying it on the screen.
+I am developing an arduino application to achieve this. In its current state, the sketch will receive all messages on port 9000.  It will iterate over an array if it exists, and  any integers, floats, or doubles will be converted to floats and displayed on the screen.  If there are more than 3 elements in the array, they will not be visible.
 
-[💾 download](assets/esp-watch-demo.ino)
+- Receiving OSC messages on port: 9000
+- Follow onscreen instructions to connect to network.
+- One of the buttons on the left of the unit resets the Wifi configiuration
+- Require libraries:
+	- OSC https://github.com/CNMAT/OSC
+	- Autoconnect https://github.com/hieromon/AutoConnect
+	- OLED manager https://github.com/ThingPulse/esp8266-oled-ssd1306
+	- NeoPixel https://github.com/adafruit/Adafruit_NeoPixel
 
-# ARDUINO SET UP
+[💾 download](assets/esp-watch-demo/esp-watch-demo.ino)
+
+Next steps:
+[ ] press button to open file on SD card.
+[ ] write incoming OSC messages to SD card.
+[ ] press button to close file on SD card.
+[ ] display filename and recording state on screen
+[ ] indicate if device is receiving data, and other information via NeoPixel
+
+---
+
+If you are starting developing from scratch with one of these watches, read on...
+
+# Setting up the initial development environment
 This is especially for the DSTIKE esp32 OLED device.
 Set up testing environment as below.
 
@@ -41,7 +61,6 @@ esp-watch-demo.ino in this folder
 
 https://github.com/lspoplove/D-duino-project/blob/master/ESP32WatchDev/ESP32WatchTest.ino
 
-(my modified version of this sketch is available to download above)
-
----
+## 5. Build settings
+![](assets/Pasted%20image%2020220202173518.png)
 
