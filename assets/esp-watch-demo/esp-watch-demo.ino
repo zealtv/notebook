@@ -24,6 +24,18 @@ using namespace ace_button;
 #define PIXEL_PIN    33    // Digital IO pin connected to the NeoPixels.
 #define PIXEL_COUNT 1
 
+#define RECORDING     2
+#define READY       1
+#define DISCONNECTED  0
+int state = DISCONNECTED;
+
+unsigned long recordingStartTime = -1000;
+unsigned long lastMessageTime = -1000;
+String lastMessageAddress = "";
+String lastMessageValues = "";
+String networkAddress = "";
+String fileName = "";
+
 AceButton wheelPress(WHEEL_PRESS);
 AceButton wheelLeft(WHEEL_LEFT);
 AceButton wheelRight(WHEEL_RIGHT);
@@ -49,10 +61,7 @@ String macString = "";
 String oscAddress;
 OSCErrorCode error;
 
-//TODO can prob get rid of this...
-int showType = 0;
-
-long startTime = 0;
+long startTime = -1000;
 
 void rootPage() {
   char content[] = "Hello, world";
@@ -69,12 +78,12 @@ void setup() {
   pinMode(BUTTON_BOTTOM, INPUT_PULLUP);
   pinMode(BUZZER, OUTPUT);
   pinMode(FLASHLIGHT, OUTPUT);
-  
   digitalWrite(FLASHLIGHT, HIGH);
 
   // Configure the ButtonConfig with the event handler, and enable all higher
   // level events.
   ButtonConfig* buttonConfig = ButtonConfig::getSystemButtonConfig();
+  buttonConfig->setLongPressDelay(2000);
   buttonConfig->setEventHandler(handleEvent);
   buttonConfig->setFeature(ButtonConfig::kFeatureClick);
   buttonConfig->setFeature(ButtonConfig::kFeatureDoubleClick);
@@ -86,7 +95,7 @@ void setup() {
   display.clear();
 
   strip.begin();
-  strip.show(); // Initialize all pixels to 'off'
+  updatePixel();
 
   //config autoconnect.  see here: https://hieromon.github.io/AutoConnect/adconnection.html
   Config.beginTimeout = 15000; // Timeout sets to 15[s]
@@ -101,63 +110,30 @@ void setup() {
 
 // initiate connection
 void initConnection() {
+  updateDisplay();
+  updatePixel();
+  
   Server.on("/", rootPage);
-  strip.setPixelColor(0, 70, 50, 0); // Yellow indicates not yet connected
-  strip.show();
-
-  // HOLD BOTTOM LEFT BUTTON ON START TO REINIT WIFI CONNECTION
-  //TODO change this to buttonBottom.isPressedRaw()
-//  if (digitalRead(BUTTON_BOTTOM) == LOW) {   
-//    Config.immediateStart = true;
-//    Portal.config(Config);
-//    initConnection();
-//  }
-
-  display.clear();
-  display.setFont(ArialMT_Plain_10);
-  display.drawString( 0, 0, "Ready to connect");
-  display.drawString( 0, 26, "Join packetPunk");
-  display.drawString( 0, 36, "goto 172.217.28.1");
-  display.drawString( 0, 46, "to configure");
-  display.display();
-
   //this will hang until true:
   if (Portal.begin()) {
-    Serial.println("WiFi connected: " + WiFi.localIP().toString());
+    state = READY;
+    networkAddress = WiFi.localIP().toString();
     Udp.begin(localPort);
-    //set led to green
-    strip.setPixelColor(0, 0, 70, 0);  // Green
-    strip.show();
-
-    display.clear();
-    display.setFont(ArialMT_Plain_10);
-    display.drawString( 0, 0, "CONNECTED");
-    display.drawString( 0, 26, "ready...");
-    display.display();
   }
 }
 
 
+//-----------------------------------------------------------------------
+//----------MAIN LOOP----------------------------------
+//-------------------------
 void loop() {
   getOSC();
   Portal.handleClient();
   checkButtons();
-
-//  //wheel up
-//  if (digitalRead(WHEEL_LEFT) == LOW){}
-//
-//  //wheel down
-//  if (digitalRead(WHEEL_RIGHT) == LOW){}
-//   
-//  //wheel press
-//  if(digitalRead(WHEEL_PRESS) == LOW){}
-//
-//  //top left button
-//  if (digitalRead(BUTTON_TOP) == LOW){}
-//
-//  //bottom left button
-//  if (digitalRead(BUTTON_BOTTOM) == LOW){}
+  updatePixel();
+  updateDisplay();
 }
+
 
 void checkButtons(){
   wheelLeft.check();
@@ -167,26 +143,21 @@ void checkButtons(){
   buttonBottom.check();
 }
 
+
+
+//OSC----------------------------------------------
 void getOSC() {
   OSCMessage msg;
   int size = Udp.parsePacket();
 
   if (size > 0) {
-    strip.setPixelColor(0, 0, 0, 0);  // Black
-    strip.show();
-    while (size--) {
-      msg.fill(Udp.read());
-    }
     
-    if (!msg.hasError()) {
-      //send all OSC messages
+    while (size--)
+      msg.fill(Udp.read());
+      
+    if (!msg.hasError())
       receiveOSC(msg);
-
-    } else {
-      error = msg.getError();
-      Serial.print("error: ");
-      Serial.println(error);
-    }
+      
   }
 }
 
@@ -196,24 +167,14 @@ void receiveOSC(OSCMessage &msg) {
   char addressBuffer[99];
   msg.getAddress(addressBuffer);
   
-  display.clear();
-  display.setFont(ArialMT_Plain_10);
-  display.drawString( 0, 0, "[R]");
+  lastMessageAddress = String(addressBuffer);
+  lastMessageValues = makeOSCString(msg);
+  lastMessageTime = millis();
 
-  //draw addres to screen
-  display.drawString( 26, 0, addressBuffer);
-
-  //Create string from incoming message
-  String msgString = makeOSCString(msg);
-//  Serial.println(String(addressBuffer) + " " +  msgString);
+  if(state == RECORDING)
+    writeMessageToFile();
   
-  display.drawStringMaxWidth( 0, 13, 128, msgString );
-
-  display.display();
-  strip.setPixelColor(0, 0, 0, 10);  // Black
-  strip.show();
 }
-
 
 String makeOSCString(OSCMessage &msg){
   int msgSize = msg.size();
@@ -241,25 +202,28 @@ String makeOSCString(OSCMessage &msg){
     //Add a space if not the last element
     if(i + 1 < msgSize){
       OSCString = OSCString + " ";
-    }
-    
-    
+    }    
   }
-
   return OSCString;
 }
 
 
+//FILE-HANDLING----------------------------
+void writeMessageToFile(){
+    //write to
+    //fileName
+    
+    //getRecordingDuration()
+    //lastMessageAddress
+    //lastMessageValues
+}
+
+
+
+
+//BUTTONS----------------------------------------------
 // The event handler for both buttons.
 void handleEvent(AceButton* button, uint8_t eventType, uint8_t buttonState) {
-
-//  Print out a message for all events, for both buttons.
-//  Serial.print(F("handleEvent(): pin: "));
-//  Serial.print(button->getPin());
-//  Serial.print(F("; eventType: "));
-//  Serial.print(eventType);
-//  Serial.print(F("; buttonState: "));
-//  Serial.println(buttonState);
 
 //Button States:
 //    kEventPressed
@@ -275,71 +239,134 @@ void handleEvent(AceButton* button, uint8_t eventType, uint8_t buttonState) {
 
     //LONG PRESSES
     case AceButton::kEventLongPressed:
-      
-      //BOTTOM BUTTON
-      if (button->getPin() == BUTTON_BOTTOM)
+      if (button->getPin() == BUTTON_BOTTOM){
         reinitConnection();
+      }
       break;
     
-//    case AceButton::kEventReleased:
-//      if (button->getPin() == BUTTON1_PIN) {
-//        digitalWrite(LED_PIN, LED_OFF);
-//      }
-//      break;
-//    
-//    case AceButton::kEventClicked:
-//      if (button->getPin() == BUTTON2_PIN) {
-//        Serial.println(F("Button 2 clicked!"));
-//      } else if (button->getPin() == BUTTON3_PIN) {
-//        Serial.println(F("Button 3 clicked!"));
-//      }
-//      break;
+    //PRESSES
+    case AceButton::kEventPressed:
+      if (button->getPin() == BUTTON_TOP)
+        toggleRecording();
+      break;
   }
 }
 
+//Toggle recording
+void toggleRecording(){
+  if(state == READY){
+    //generate and store uniqe filename
+    //open file on SD
+    //start timer
+    recordingStartTime = millis();
+    state = RECORDING;
+  }
+  else if(state == RECORDING){
+     //close and save file
+     state = READY;
+  }
+  else if(state == DISCONNECTED){
+    //close file if it is being written
+  }
+}
+
+unsigned long getRecordingDuration(){
+  return millis() - recordingStartTime;
+}
+
+//WIFI------------------------------------------------------------
 //Drop off current network and start up adhoc network for reconfiguration
 void reinitConnection(){
+    state = DISCONNECTED;
+    if(state == RECORDING){
+      //save and close file
+    }
+    updatePixel();
+    updateDisplay();
     Config.immediateStart = true;
     Portal.config(Config);
     initConnection();
 }
 
-//-----------------------------------------------------
-void soundone() {
-  unsigned char i, j;
-  for (i = 0; i < 5; i++) {
-    for (i = 0; i < 200; i++) {
-      digitalWrite(BUZZER, HIGH);
-      delay(1);//Change this could adjust voice
-      digitalWrite(BUZZER, LOW);
-      delay(1);
+
+
+//PIXEL----------------------------------------------
+void updatePixel(){
+    switch(state){
+      case DISCONNECTED:
+      strip.setPixelColor(0, 30, 15, 0); // yellow orange
+      break;
+      case READY:
+        strip.setPixelColor(0, 0, 10, 0);  // green
+      break;
+      case RECORDING:
+        strip.setPixelColor(0, 20, 0, 0);  // red
+      break;            
     }
 
-    for (i = 0; i < 100; i++) {
-      digitalWrite(BUZZER, HIGH);
-      delay(2);
-      digitalWrite(BUZZER, LOW);
-      delay(2);
-    }
-  }
+    //if recent data
+    if(millis() - lastMessageTime < 10)
+      strip.setPixelColor(0, 0, 0, 30); //todo make this blink/pulse
+
+    //if recent start
+    //WHITE (flash)
+    if(getRecordingDuration() < 500)
+      strip.setPixelColor(0, 100, 100, 100); //todo make this blink/pulse
+
+    strip.show();
 }
 
-void soundtwo() {
-  unsigned char i, j;
 
-  for (i = 0; i < 5; i++) {
-    for (i = 0; i < 100; i++) {
-      digitalWrite(BUZZER, HIGH);
-      delay(2);//Change this could adjust voice
-      digitalWrite(BUZZER, LOW);
-      delay(2);
-    }
+//DISPLAY-----------------------------------------------------
+void updateDisplay(){
+    switch(state){
+      
+      case DISCONNECTED:
+        display.clear();
+        display.setFont(ArialMT_Plain_10);
+        display.drawString( 0, 0, "DISCONNECTED");
+        display.drawString( 0, 26, "Join packetPunk");
+        display.drawString( 0, 36, "goto 172.217.28.1");
+        display.drawString( 0, 46, "to configure");
+        display.display();
+      break;
 
-    for (i = 0; i < 200; i++) {
-      digitalWrite(BUZZER, HIGH);
-      delay(1);
-      digitalWrite(BUZZER, LOW);
-      delay(1);
+      
+      case READY:
+        display.clear();
+        display.setFont(ArialMT_Plain_10);
+        display.drawString( 0, 0, "READY");
+        display.drawString( 0, 26, "ip: " + networkAddress);
+        display.display();
+      break;
+
+   
+      case RECORDING:
+        //calculate time to display
+        unsigned long totalSeconds = getRecordingDuration() / 1000;
+        unsigned long totalMinutes = totalSeconds / 60;
+        unsigned long secs = totalSeconds % 60;
+        unsigned long mins = totalMinutes % 60;
+        unsigned long hrs = totalMinutes / 60;
+        //enough room for 9999 hours       
+        char timeBuffer[22];
+        sprintf(timeBuffer, "RECORDING   %d:%02d:%02d", hrs, mins, secs);
+
+        display.clear();
+        display.setFont(ArialMT_Plain_10);
+        display.drawString( 0, 0, timeBuffer );
+        display.drawStringMaxWidth( 0, 26, 128, lastMessageAddress + " " + lastMessageValues );   
+        display.display();
+      break;            
     }
-  }
 }
+
+
+
+////SOUND-----------------------------------------------------
+//void soundone() {
+////  if(millis()/2.5 % 2 > 0)
+////    digitalWrite(BUZZER, LOW);
+////  else
+////    digitalWrite(BUZZER, HIGH);
+//}

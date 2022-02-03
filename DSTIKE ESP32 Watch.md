@@ -1,7 +1,7 @@
 ---
 title: DSTIKE ESP32 Watch
 date: 2022-02-02
-lastmod: 2022-02-03T20:25:13+11:00
+lastmod: 2022-02-03T23:50:26+11:00
 draft: false
 ---
 
@@ -13,7 +13,10 @@ There are a few different versions, some in this watch form factor, some as sing
 
 I'm interested in using the device as an OSC logger (and perhaps later playback) device, for capturing streaming OSC messages in on-body applications.
 
-I am developing an arduino application to achieve this. In its current state, the sketch will receive all messages on port 9000.  It will iterate over an array if it exists, and  any integers, floats, or doubles will be converted to floats and displayed on the screen.  If there are more than 3 elements in the array, they will not be visible.
+I am developing an arduino application to achieve this. In its current state, the sketch will receive all messages on port 9000.  It will iterate over an array if it exists, and  any integers, floats, or doubles will be converted to floats and displayed on the screen.  The inbuilt neoPixel indicates current mode, incoming data, and acts as a sync indicator when starting to record.
+
+The sketch just displays stuff at the moment, no logging functionality is yet implemented.
+
 
 ### usage
 - Follow onscreen instructions to connect to network.
@@ -37,7 +40,7 @@ I am developing an arduino application to achieve this. In its current state, th
 -  write incoming OSC messages to SD card.
 -  press button to close file on SD card.
 -  display filename and recording state on screen
--  indicate if device is receiving data, and other information via NeoPixel
+-  ~~indicate if device is receiving data, and other information via NeoPixel~~
 
 ---
 
@@ -71,3 +74,5 @@ https://github.com/lspoplove/D-duino-project/blob/master/ESP32WatchDev/ESP32Watc
 ## 5. Build settings
 ![](assets/Pasted%20image%2020220202173518.png)
 
+## 6. SD info
+This is a particularly useful [sketch outlining SD card file procedures](https://github.com/espressif/arduino-esp32/blob/master/libraries/SD_MMC/examples/SDMMC_Test/SDMMC_Test.ino) 
