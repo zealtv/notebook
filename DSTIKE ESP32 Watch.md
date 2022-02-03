@@ -1,7 +1,7 @@
 ---
 title: DSTIKE ESP32 Watch
 date: 2022-02-02
-lastmod: 2022-02-02T22:46:07+11:00
+lastmod: 2022-02-03T14:49:47+11:00
 draft: false
 ---
 
@@ -17,10 +17,10 @@ I am developing an arduino application to achieve this. In its current state, th
 
 ### usage
 - Follow onscreen instructions to connect to network.
-- One of the buttons on the left of the unit resets the Wifi configiuration
-- OSC messages are received on port: 9000
+- OSC messages are received on port 9000 and displayed on screen.
+- Press and hold front-bottom-left button during boot to disconnect from current WiFi network.
 
-### Required libraries:
+### Required libraries
 - OSC https://github.com/CNMAT/OSC
 - Autoconnect https://github.com/hieromon/AutoConnect
 - OLED manager https://github.com/ThingPulse/esp8266-oled-ssd1306
@@ -28,8 +28,9 @@ I am developing an arduino application to achieve this. In its current state, th
 
 #### [💾 download](assets/esp-watch-demo/esp-watch-demo.ino)
 
+🔺🔷🔻🔷🔺🔷🔻🔷🔺🔷🔻🔷🔺🔷🔻🔷🔺
 
-Future steps:
+### Future steps
 -  press button to open file on SD card.
 -  write incoming OSC messages to SD card.
 -  press button to close file on SD card.

@@ -80,6 +80,13 @@ void initConnection() {
   strip.setPixelColor(0, 70, 50, 0); // Yellow indicates not yet connected
   strip.show();
 
+  // HOLD BOTTOM LEFT BUTTON ON START TO REINIT WIFI CONNECTION
+  if (digitalRead(BUTTON_OFF) == LOW) {
+    Config.immediateStart = true;
+    Portal.config(Config);
+    initConnection();
+  }
+
   display.clear();
   display.setFont(ArialMT_Plain_10);
   display.drawString( 0, 0, "Ready to connect");
@@ -125,9 +132,9 @@ void loop() {
   if (digitalRead(BUTTON_OFF) == LOW) {
     digitalWrite(FLASHLIGHT, HIGH);
     //reset audtoconnect
-    Config.immediateStart = true;
-    Portal.config(Config);
-    initConnection();
+//    Config.immediateStart = true;
+//    Portal.config(Config);
+//    initConnection();
   }
 
   bool newState = digitalRead(BUTTON_PRESS);
@@ -177,8 +184,6 @@ void receiveOSC(OSCMessage &msg) {
   String oscAddress;
   char addressBuffer[99];
   msg.getAddress(addressBuffer);
-
-
   
   display.clear();
   display.setFont(ArialMT_Plain_10);
@@ -186,35 +191,52 @@ void receiveOSC(OSCMessage &msg) {
 
   //draw addres to screen
   display.drawString( 26, 0, addressBuffer);
-  
-  
-  //the following converts ints, floats, and doubles to float, and draws them to screen.
-  for(int i = 0; i < msgSize; i++){
 
-    float thisVal;
+  //Create string from incoming message
+  String msgString = makeOSCString(msg);
+  Serial.println(String(addressBuffer) + " " +  msgString);
+  
+  display.drawStringMaxWidth( 0, 13, 128, msgString );
 
-    if(msg.isInt(i)){
-      thisVal = msg.getInt(i);
-    }
-    else if(msg.isFloat(i)){
-      thisVal = msg.getFloat(i);
-    }
-    else if(msg.isDouble(i)){
-      thisVal = msg.getDouble(i);
-    }
-    
-    display.drawString( 0, 13 + 13 * i, String(thisVal));
-    
-  }
-  
-  
   display.display();
   strip.setPixelColor(0, 0, 0, 10);  // Black
   strip.show();
 }
 
 
+String makeOSCString(OSCMessage &msg){
+  int msgSize = msg.size();
+  String OSCString = "";
+  
+  //Build a string of the OSC arguments, casting each type as a string
+  for(int i = 0; i < msgSize; i++){
+    float thisVal;
 
+    if(msg.isInt(i)){
+      OSCString = OSCString + String(msg.getInt(i));
+    }
+    else if(msg.isFloat(i)){
+      OSCString = OSCString + String(msg.getFloat(i));
+    }
+    else if(msg.isDouble(i)){
+      OSCString = OSCString + String(msg.getDouble(i));
+    }
+    //TODO Bools not working?
+    else if(msg.isBoolean(i)){
+      OSCString = OSCString + String(msg.getBoolean(i));
+    }
+    //TODO Strings
+
+    //Add a space if not the last element
+    if(i + 1 < msgSize){
+      OSCString = OSCString + " ";
+    }
+    
+    
+  }
+
+  return OSCString;
+}
 
 
 
