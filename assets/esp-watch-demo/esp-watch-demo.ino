@@ -3,22 +3,37 @@
 #include <AutoConnect.h>
 #include <Adafruit_NeoPixel.h>
 #include "SH1106.h"
+
 //OSC
 #include <WiFiUdp.h>
 #include <OSCMessage.h>
 #include <OSCBundle.h>
 #include <OSCData.h>
 
-#define BUTTON_PRESS   18
-#define BUTTON_LEFT    5
-#define BUTTON_RIGHT   19
+//BUTTONS
+#include <AceButton.h>
+using namespace ace_button;
+
+#define WHEEL_PRESS   18
+#define WHEEL_LEFT    5
+#define WHEEL_RIGHT   19
 #define BUZZER 32
-#define BUTTON_ON 22
-#define BUTTON_OFF 23
+#define BUTTON_TOP 22
+#define BUTTON_BOTTOM 23
 #define FLASHLIGHT 27
 #define PIXEL_PIN    33    // Digital IO pin connected to the NeoPixels.
 #define PIXEL_COUNT 1
 
+AceButton wheelPress(WHEEL_PRESS);
+AceButton wheelLeft(WHEEL_LEFT);
+AceButton wheelRight(WHEEL_RIGHT);
+AceButton buttonTop(BUTTON_TOP);
+AceButton buttonBottom(BUTTON_BOTTOM);
+
+// Forward reference to prevent Arduino compiler becoming confused.
+void handleEvent(AceButton*, uint8_t, uint8_t);
+
+//Set up Neopixel and OLED display
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(PIXEL_COUNT, PIXEL_PIN, NEO_GRB + NEO_KHZ800);
 SH1106  display(0x3c, 17, 16);
 
@@ -34,8 +49,10 @@ String macString = "";
 String oscAddress;
 OSCErrorCode error;
 
-bool oldState = HIGH;
+//TODO can prob get rid of this...
 int showType = 0;
+
+long startTime = 0;
 
 void rootPage() {
   char content[] = "Hello, world";
@@ -44,24 +61,32 @@ void rootPage() {
 
 void setup() {
   Serial.begin(115200);
-  Serial.println("setting up pins...");
 
-  pinMode(BUTTON_PRESS, INPUT_PULLUP);
-  pinMode(BUTTON_LEFT, INPUT_PULLUP);
-  pinMode(BUTTON_RIGHT, INPUT_PULLUP);
-  pinMode(BUTTON_ON, INPUT_PULLUP);
-  pinMode(BUTTON_OFF, INPUT_PULLUP);
+  pinMode(WHEEL_PRESS, INPUT_PULLUP);
+  pinMode(WHEEL_LEFT, INPUT_PULLUP);
+  pinMode(WHEEL_RIGHT, INPUT_PULLUP);
+  pinMode(BUTTON_TOP, INPUT_PULLUP);
+  pinMode(BUTTON_BOTTOM, INPUT_PULLUP);
   pinMode(BUZZER, OUTPUT);
   pinMode(FLASHLIGHT, OUTPUT);
+  
   digitalWrite(FLASHLIGHT, HIGH);
+
+  // Configure the ButtonConfig with the event handler, and enable all higher
+  // level events.
+  ButtonConfig* buttonConfig = ButtonConfig::getSystemButtonConfig();
+  buttonConfig->setEventHandler(handleEvent);
+  buttonConfig->setFeature(ButtonConfig::kFeatureClick);
+  buttonConfig->setFeature(ButtonConfig::kFeatureDoubleClick);
+  buttonConfig->setFeature(ButtonConfig::kFeatureLongPress);
+  buttonConfig->setFeature(ButtonConfig::kFeatureRepeatPress);
+  
   display.init();
   display.flipScreenVertically();
   display.clear();
 
   strip.begin();
   strip.show(); // Initialize all pixels to 'off'
-
-  Serial.println("done :)");
 
   //config autoconnect.  see here: https://hieromon.github.io/AutoConnect/adconnection.html
   Config.beginTimeout = 15000; // Timeout sets to 15[s]
@@ -81,11 +106,12 @@ void initConnection() {
   strip.show();
 
   // HOLD BOTTOM LEFT BUTTON ON START TO REINIT WIFI CONNECTION
-  if (digitalRead(BUTTON_OFF) == LOW) {
-    Config.immediateStart = true;
-    Portal.config(Config);
-    initConnection();
-  }
+  //TODO change this to buttonBottom.isPressedRaw()
+//  if (digitalRead(BUTTON_BOTTOM) == LOW) {   
+//    Config.immediateStart = true;
+//    Portal.config(Config);
+//    initConnection();
+//  }
 
   display.clear();
   display.setFont(ArialMT_Plain_10);
@@ -98,7 +124,6 @@ void initConnection() {
   //this will hang until true:
   if (Portal.begin()) {
     Serial.println("WiFi connected: " + WiFi.localIP().toString());
-    Serial.println("Starting UDP");
     Udp.begin(localPort);
     //set led to green
     strip.setPixelColor(0, 0, 70, 0);  // Green
@@ -116,44 +141,30 @@ void initConnection() {
 void loop() {
   getOSC();
   Portal.handleClient();
+  checkButtons();
 
-  if (digitalRead(BUTTON_LEFT) == LOW) {
-    //    soundone();
-  }
+//  //wheel up
+//  if (digitalRead(WHEEL_LEFT) == LOW){}
+//
+//  //wheel down
+//  if (digitalRead(WHEEL_RIGHT) == LOW){}
+//   
+//  //wheel press
+//  if(digitalRead(WHEEL_PRESS) == LOW){}
+//
+//  //top left button
+//  if (digitalRead(BUTTON_TOP) == LOW){}
+//
+//  //bottom left button
+//  if (digitalRead(BUTTON_BOTTOM) == LOW){}
+}
 
-  if (digitalRead(BUTTON_RIGHT) == LOW) {
-    //    soundtwo();
-  }
-
-  if (digitalRead(BUTTON_ON) == LOW) {
-    digitalWrite(FLASHLIGHT, LOW);
-  }
-
-  if (digitalRead(BUTTON_OFF) == LOW) {
-    digitalWrite(FLASHLIGHT, HIGH);
-    //reset audtoconnect
-//    Config.immediateStart = true;
-//    Portal.config(Config);
-//    initConnection();
-  }
-
-  bool newState = digitalRead(BUTTON_PRESS);
-  // Check if state changed from high to low (button press).
-  if (newState == LOW && oldState == HIGH) {
-    // Short delay to debounce button.
-    delay(20);
-    // Check if button is still low after debounce.
-    newState = digitalRead(BUTTON_PRESS);
-    if (newState == LOW) {
-      //dial button is pressed
-      //turn off LED
-      strip.setPixelColor(0, 0, 0, 0);  // Black
-      strip.show();
-    }
-  }
-
-  // Set the last button state to the old state.
-  oldState = newState;
+void checkButtons(){
+  wheelLeft.check();
+  wheelRight.check();
+  wheelPress.check();
+  buttonTop.check();
+  buttonBottom.check();
 }
 
 void getOSC() {
@@ -194,7 +205,7 @@ void receiveOSC(OSCMessage &msg) {
 
   //Create string from incoming message
   String msgString = makeOSCString(msg);
-  Serial.println(String(addressBuffer) + " " +  msgString);
+//  Serial.println(String(addressBuffer) + " " +  msgString);
   
   display.drawStringMaxWidth( 0, 13, 128, msgString );
 
@@ -239,6 +250,59 @@ String makeOSCString(OSCMessage &msg){
 }
 
 
+// The event handler for both buttons.
+void handleEvent(AceButton* button, uint8_t eventType, uint8_t buttonState) {
+
+//  Print out a message for all events, for both buttons.
+//  Serial.print(F("handleEvent(): pin: "));
+//  Serial.print(button->getPin());
+//  Serial.print(F("; eventType: "));
+//  Serial.print(eventType);
+//  Serial.print(F("; buttonState: "));
+//  Serial.println(buttonState);
+
+//Button States:
+//    kEventPressed
+//    kEventReleased
+//    kEventClicked
+//    kEventDoubleClicked
+//    kEventLongPressed
+//    kEventRepeatPressed
+//    kEventLongReleased
+//    kButtonStateUnknown
+
+  switch (eventType) {
+
+    //LONG PRESSES
+    case AceButton::kEventLongPressed:
+      
+      //BOTTOM BUTTON
+      if (button->getPin() == BUTTON_BOTTOM)
+        reinitConnection();
+      break;
+    
+//    case AceButton::kEventReleased:
+//      if (button->getPin() == BUTTON1_PIN) {
+//        digitalWrite(LED_PIN, LED_OFF);
+//      }
+//      break;
+//    
+//    case AceButton::kEventClicked:
+//      if (button->getPin() == BUTTON2_PIN) {
+//        Serial.println(F("Button 2 clicked!"));
+//      } else if (button->getPin() == BUTTON3_PIN) {
+//        Serial.println(F("Button 3 clicked!"));
+//      }
+//      break;
+  }
+}
+
+//Drop off current network and start up adhoc network for reconfiguration
+void reinitConnection(){
+    Config.immediateStart = true;
+    Portal.config(Config);
+    initConnection();
+}
 
 //-----------------------------------------------------
 void soundone() {

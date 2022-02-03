@@ -1,7 +1,7 @@
 ---
 title: DSTIKE ESP32 Watch
 date: 2022-02-02
-lastmod: 2022-02-03T14:49:47+11:00
+lastmod: 2022-02-03T20:25:13+11:00
 draft: false
 ---
 
@@ -18,13 +18,15 @@ I am developing an arduino application to achieve this. In its current state, th
 ### usage
 - Follow onscreen instructions to connect to network.
 - OSC messages are received on port 9000 and displayed on screen.
-- Press and hold front-bottom-left button during boot to disconnect from current WiFi network.
+- Long-press  bottom left button to disconnect from current WiFi network.
 
 ### Required libraries
 - OSC https://github.com/CNMAT/OSC
 - Autoconnect https://github.com/hieromon/AutoConnect
 - OLED manager https://github.com/ThingPulse/esp8266-oled-ssd1306
 - NeoPixel https://github.com/adafruit/Adafruit_NeoPixel
+- AceButton https://github.com/bxparks/AceButton
+- AceMenu https://github.com/StrathbogieBrewing/AceMenu (Probably in the near future)
 
 #### [💾 download](assets/esp-watch-demo/esp-watch-demo.ino)
 
@@ -37,10 +39,9 @@ I am developing an arduino application to achieve this. In its current state, th
 -  display filename and recording state on screen
 -  indicate if device is receiving data, and other information via NeoPixel
 
-If you are starting developing from scratch with one of these watches, read on...
-
 ---
 
+If you are starting development from scratch with one of these watches, read on...
 
 # Setting up the initial development environment
 This is especially for the DSTIKE esp32 OLED device.
