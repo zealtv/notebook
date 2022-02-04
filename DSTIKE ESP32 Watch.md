@@ -1,7 +1,7 @@
 ---
 title: DSTIKE ESP32 Watch
 date: 2022-02-02
-lastmod: 2022-02-03T23:50:26+11:00
+lastmod: 2022-02-03T23:51:37+11:00
 draft: false
 ---
 
@@ -13,14 +13,14 @@ There are a few different versions, some in this watch form factor, some as sing
 
 I'm interested in using the device as an OSC logger (and perhaps later playback) device, for capturing streaming OSC messages in on-body applications.
 
-I am developing an arduino application to achieve this. In its current state, the sketch will receive all messages on port 9000.  It will iterate over an array if it exists, and  any integers, floats, or doubles will be converted to floats and displayed on the screen.  The inbuilt neoPixel indicates current mode, incoming data, and acts as a sync indicator when starting to record.
+I am developing an arduino application to achieve this. In its current state, the sketch will receive all messages on port 9000.  The inbuilt neoPixel indicates current mode, incoming data, and acts as a sync indicator when starting to record.
 
-The sketch just displays stuff at the moment, no logging functionality is yet implemented.
 
 
 ### usage
 - Follow onscreen instructions to connect to network.
 - OSC messages are received on port 9000 and displayed on screen.
+- Press the top left button to start logging, press again to save file.
 - Long-press  bottom left button to disconnect from current WiFi network.
 
 ### Required libraries
@@ -29,18 +29,20 @@ The sketch just displays stuff at the moment, no logging functionality is yet im
 - OLED manager https://github.com/ThingPulse/esp8266-oled-ssd1306
 - NeoPixel https://github.com/adafruit/Adafruit_NeoPixel
 - AceButton https://github.com/bxparks/AceButton
-- AceMenu https://github.com/StrathbogieBrewing/AceMenu (Probably in the near future)
+
 
 #### [💾 download](assets/esp-watch-demo/esp-watch-demo.ino)
 
 🔺🔷🔻🔷🔺🔷🔻🔷🔺🔷🔻🔷🔺🔷🔻🔷🔺
 
 ### Future steps
--  press button to open file on SD card.
--  write incoming OSC messages to SD card.
--  press button to close file on SD card.
--  display filename and recording state on screen
+-  ~~press button to open file on SD card.~~
+-  ~~write incoming OSC messages to SD card.~~
+-  ~~press button to close file on SD card.~~
+-  ~~display filename and recording state on screen~~
 -  ~~indicate if device is receiving data, and other information via NeoPixel~~
+- Receive bundles
+- Optimize to avoid using Strings.
 
 ---
 

@@ -3,6 +3,8 @@
 #include <AutoConnect.h>
 #include <Adafruit_NeoPixel.h>
 #include "SH1106.h"
+#include "FS.h"
+#include "SD_MMC.h"
 
 //OSC
 #include <WiFiUdp.h>
@@ -34,7 +36,10 @@ unsigned long lastMessageTime = -1000;
 String lastMessageAddress = "";
 String lastMessageValues = "";
 String networkAddress = "";
-String fileName = "";
+char currentFilename[9] = "/000.log";
+int numFiles = 0;
+File currentFile;
+char msgCharArray[999];
 
 AceButton wheelPress(WHEEL_PRESS);
 AceButton wheelLeft(WHEEL_LEFT);
@@ -96,6 +101,11 @@ void setup() {
 
   strip.begin();
   updatePixel();
+
+  delay(500);
+  
+  initSD();
+  countFiles();
 
   //config autoconnect.  see here: https://hieromon.github.io/AutoConnect/adconnection.html
   Config.beginTimeout = 15000; // Timeout sets to 15[s]
@@ -208,18 +218,6 @@ String makeOSCString(OSCMessage &msg){
 }
 
 
-//FILE-HANDLING----------------------------
-void writeMessageToFile(){
-    //write to
-    //fileName
-    
-    //getRecordingDuration()
-    //lastMessageAddress
-    //lastMessageValues
-}
-
-
-
 
 //BUTTONS----------------------------------------------
 // The event handler for both buttons.
@@ -255,14 +253,12 @@ void handleEvent(AceButton* button, uint8_t eventType, uint8_t buttonState) {
 //Toggle recording
 void toggleRecording(){
   if(state == READY){
-    //generate and store uniqe filename
-    //open file on SD
-    //start timer
     recordingStartTime = millis();
+    openFile();
     state = RECORDING;
   }
   else if(state == RECORDING){
-     //close and save file
+     closeFile();
      state = READY;
   }
   else if(state == DISCONNECTED){
@@ -310,8 +306,10 @@ void updatePixel(){
 
     //if recent start
     //WHITE (flash)
-    if(getRecordingDuration() < 500)
+    if(getRecordingDuration() < 500){
       strip.setPixelColor(0, 100, 100, 100); //todo make this blink/pulse
+//      buzz();
+    }
 
     strip.show();
 }
@@ -336,7 +334,9 @@ void updateDisplay(){
         display.clear();
         display.setFont(ArialMT_Plain_10);
         display.drawString( 0, 0, "READY");
-        display.drawString( 0, 26, "ip: " + networkAddress);
+        display.drawString( 0, 13, "< start");
+        display.drawString( 0, 36, "ip:    " + networkAddress);
+        display.drawString( 0, 49, "port: 9000");
         display.display();
       break;
 
@@ -355,7 +355,12 @@ void updateDisplay(){
         display.clear();
         display.setFont(ArialMT_Plain_10);
         display.drawString( 0, 0, timeBuffer );
-        display.drawStringMaxWidth( 0, 26, 128, lastMessageAddress + " " + lastMessageValues );   
+        //this line displays incoming OSC
+         //display.drawStringMaxWidth( 0, 26, 128, lastMessageAddress + " " + lastMessageValues );
+
+        display.drawString( 0, 13, "< save");        
+        display.setFont(ArialMT_Plain_24);
+        display.drawString(0, 39, String(currentFilename));
         display.display();
       break;            
     }
@@ -364,9 +369,100 @@ void updateDisplay(){
 
 
 ////SOUND-----------------------------------------------------
-//void soundone() {
-////  if(millis()/2.5 % 2 > 0)
-////    digitalWrite(BUZZER, LOW);
-////  else
-////    digitalWrite(BUZZER, HIGH);
-//}
+void buzz() {
+  if(millis() % 2 == 0)
+    digitalWrite(BUZZER, LOW);
+  else
+    digitalWrite(BUZZER, HIGH);
+}
+
+
+
+//FILE-HANDLING----------------------------
+
+//COUNT FILES--------------------
+int countFiles(){
+  int count = 0;
+
+  Serial.printf("Counting files...\n");
+  File root = SD_MMC.open("/");
+  File file = root.openNextFile();
+  while(file){
+      if(!file.isDirectory()){
+        Serial.print("  FILE: ");
+        Serial.print(file.name());
+        Serial.print("  SIZE: ");
+        Serial.println(file.size());
+        count++;
+      }
+      file = root.openNextFile();
+  }
+  Serial.printf("Found %d files\n", count);
+  numFiles = count;
+  sprintf(currentFilename, "/%03d.LOG", numFiles);
+  Serial.println("next filename: " + String(currentFilename));  
+}
+
+
+//INITIALIZE---------------
+int initSD(){
+  Serial.println("Initialisting SD...");
+  
+    if(!SD_MMC.begin()){
+        Serial.println("Card Mount Failed");
+        return -1;
+    }
+
+    uint64_t cardSize = SD_MMC.cardSize() / (1024 * 1024);
+    Serial.printf("SD_MMC Card Size: %lluMB\n", cardSize);
+}
+
+
+//OPEN FILE-------------------
+void openFile(){
+  //delete current file if it already exists (overwrite)
+  // //delete a file:
+  if (SD_MMC.exists(currentFilename)){
+    Serial.println("Deleting existing " + String(currentFilename));
+    SD_MMC.remove(currentFilename);
+    Serial.println("Done");
+  } 
+
+  Serial.println("Opening " + String(currentFilename));
+  currentFile = SD_MMC.open(currentFilename, FILE_WRITE);
+
+  setSyncFlag();
+//  currentFile.println("hi");
+}
+
+//CLOSE FILE-----------------------
+void closeFile(){
+  Serial.println("closing " + String(currentFilename));
+  setCloseFlag();
+  currentFile.close();
+  countFiles();
+}
+
+//WRITE OSC MESSAGE TO FILE-----------------------
+void writeMessageToFile(){
+    //write to
+    //fileName
+
+    String thisMessage = String(getRecordingDuration()) + " " + lastMessageAddress + " " + lastMessageValues + "\n";
+//    sprintf(msgCharArray, "%d %s %s\n", getRecordingDuration(), lastMessageAddress, lastMessageValues);
+    
+//    currentFile.print(msgCharArray);
+    currentFile.print(thisMessage);
+}
+
+
+//SET SYNC FLAG---------------
+void setSyncFlag(){
+      currentFile.print(String(getRecordingDuration()) + " /packetpunk/sync 1\n");
+}
+
+
+//SET CLOSE FLAG---------------
+void setCloseFlag(){
+      currentFile.print(String(getRecordingDuration()) + " /packetpunk/close 1\n");
+}
