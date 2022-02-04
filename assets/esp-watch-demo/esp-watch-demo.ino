@@ -33,13 +33,13 @@ int state = DISCONNECTED;
 
 unsigned long recordingStartTime = -1000;
 unsigned long lastMessageTime = -1000;
-String lastMessageAddress = "";
+char lastMessageAddress[64] = "";
 String lastMessageValues = "";
-String networkAddress = "";
-char currentFilename[9] = "/000.log";
+String networkAddress = "...";
+char currentFilename[9] = "/000.LOG";
 int numFiles = 0;
 File currentFile;
-char msgCharArray[999];
+char msgBuffer[512] = "...";
 
 AceButton wheelPress(WHEEL_PRESS);
 AceButton wheelLeft(WHEEL_LEFT);
@@ -170,23 +170,20 @@ void getOSC() {
         receiveOSC(bundle.getOSCMessage(i));
       }
     }
-      
   }
 }
 
 void receiveOSC(OSCMessage msg) {
   int msgSize = msg.size();
   String oscAddress;
-  char addressBuffer[99];
-  msg.getAddress(addressBuffer);
-  
-  lastMessageAddress = String(addressBuffer);
+//  char addressBuffer[99];
+  msg.getAddress(lastMessageAddress);
+ 
   lastMessageValues = makeOSCString(msg);
   lastMessageTime = millis();
 
   if(state == RECORDING)
     writeMessageToFile();
-  
 }
 
 String makeOSCString(OSCMessage &msg){
@@ -201,10 +198,10 @@ String makeOSCString(OSCMessage &msg){
       OSCString = OSCString + String(msg.getInt(i));
     }
     else if(msg.isFloat(i)){
-      OSCString = OSCString + String(msg.getFloat(i));
+      OSCString = OSCString + String(msg.getFloat(i), 6);
     }
     else if(msg.isDouble(i)){
-      OSCString = OSCString + String(msg.getDouble(i));
+      OSCString = OSCString + String(msg.getDouble(i), 6);
     }
     //TODO Bools not working?
     else if(msg.isBoolean(i)){
@@ -435,7 +432,6 @@ void openFile(){
   currentFile = SD_MMC.open(currentFilename, FILE_WRITE);
 
   setSyncFlag();
-//  currentFile.println("hi");
 }
 
 //CLOSE FILE-----------------------
@@ -448,14 +444,10 @@ void closeFile(){
 
 //WRITE OSC MESSAGE TO FILE-----------------------
 void writeMessageToFile(){
-    //write to
-    //fileName
 
-    String thisMessage = String(getRecordingDuration()) + " " + lastMessageAddress + " " + lastMessageValues + "\n";
-//    sprintf(msgCharArray, "%d %s %s\n", getRecordingDuration(), lastMessageAddress, lastMessageValues);
-    
-//    currentFile.print(msgCharArray);
-    currentFile.print(thisMessage);
+    //TODO can construct this array when OSC messages are recieved rather than casting Strings
+    sprintf(msgBuffer, "%d %s %s\n", getRecordingDuration(), lastMessageAddress, lastMessageValues.c_str());
+    currentFile.print(msgBuffer);
 }
 
 

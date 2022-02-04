@@ -1,7 +1,7 @@
 ---
 title: DSTIKE ESP32 Watch
 date: 2022-02-02
-lastmod: 2022-02-04T16:55:29+11:00
+lastmod: 2022-02-04T18:31:16+11:00
 draft: false
 ---
 
@@ -42,7 +42,8 @@ I am developing an arduino application to achieve this. In its current state, th
 -  ~~display filename and recording state on screen~~
 -  ~~indicate if device is receiving data, and other information via NeoPixel~~
 - ~~Receive bundles~~
-- Optimize to avoid using Strings.
+- Implement string and boolean message types
+- Optimization (fewer Strings)
 
 ---
 
