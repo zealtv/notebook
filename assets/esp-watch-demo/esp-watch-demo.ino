@@ -157,21 +157,24 @@ void checkButtons(){
 
 //OSC----------------------------------------------
 void getOSC() {
-  OSCMessage msg;
+  OSCBundle bundle;
   int size = Udp.parsePacket();
 
   if (size > 0) {
     
     while (size--)
-      msg.fill(Udp.read());
+      bundle.fill(Udp.read());
       
-    if (!msg.hasError())
-      receiveOSC(msg);
+    if (!bundle.hasError()){
+      for(int i = 0; i < bundle.size(); i++){
+        receiveOSC(bundle.getOSCMessage(i));
+      }
+    }
       
   }
 }
 
-void receiveOSC(OSCMessage &msg) {
+void receiveOSC(OSCMessage msg) {
   int msgSize = msg.size();
   String oscAddress;
   char addressBuffer[99];

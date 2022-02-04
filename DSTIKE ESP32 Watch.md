@@ -1,7 +1,7 @@
 ---
 title: DSTIKE ESP32 Watch
 date: 2022-02-02
-lastmod: 2022-02-03T23:51:37+11:00
+lastmod: 2022-02-04T16:55:29+11:00
 draft: false
 ---
 
@@ -41,7 +41,7 @@ I am developing an arduino application to achieve this. In its current state, th
 -  ~~press button to close file on SD card.~~
 -  ~~display filename and recording state on screen~~
 -  ~~indicate if device is receiving data, and other information via NeoPixel~~
-- Receive bundles
+- ~~Receive bundles~~
 - Optimize to avoid using Strings.
 
 ---
