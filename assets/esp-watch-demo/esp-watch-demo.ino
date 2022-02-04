@@ -34,12 +34,11 @@ int state = DISCONNECTED;
 unsigned long recordingStartTime = -1000;
 unsigned long lastMessageTime = -1000;
 char lastMessageAddress[64] = "";
-String lastMessageValues = "";
 String networkAddress = "...";
 char currentFilename[9] = "/000.LOG";
 int numFiles = 0;
 File currentFile;
-char msgBuffer[512] = "...";
+char msgStringValueBuffer[1024] = "";
 
 AceButton wheelPress(WHEEL_PRESS);
 AceButton wheelLeft(WHEEL_LEFT);
@@ -129,6 +128,7 @@ void initConnection() {
     state = READY;
     networkAddress = WiFi.localIP().toString();
     Udp.begin(localPort);
+    updateDisplay();
   }
 }
 
@@ -138,17 +138,17 @@ void initConnection() {
 //-------------------------
 void loop() {
   getOSC();
-  Portal.handleClient();
+//  Portal.handleClient(); //seems to be fine without it
   checkButtons();
   updatePixel();
-  updateDisplay();
+//  updateDisplay();  //<-expensive
 }
 
 
 void checkButtons(){
-  wheelLeft.check();
-  wheelRight.check();
-  wheelPress.check();
+//  wheelLeft.check();
+//  wheelRight.check();
+//  wheelPress.check();
   buttonTop.check();
   buttonBottom.check();
 }
@@ -160,8 +160,7 @@ void getOSC() {
   OSCBundle bundle;
   int size = Udp.parsePacket();
 
-  if (size > 0) {
-    
+  if (size > 0) {   
     while (size--)
       bundle.fill(Udp.read());
       
@@ -174,47 +173,10 @@ void getOSC() {
 }
 
 void receiveOSC(OSCMessage msg) {
-  int msgSize = msg.size();
-  String oscAddress;
-//  char addressBuffer[99];
-  msg.getAddress(lastMessageAddress);
- 
-  lastMessageValues = makeOSCString(msg);
   lastMessageTime = millis();
 
   if(state == RECORDING)
-    writeMessageToFile();
-}
-
-String makeOSCString(OSCMessage &msg){
-  int msgSize = msg.size();
-  String OSCString = "";
-  
-  //Build a string of the OSC arguments, casting each type as a string
-  for(int i = 0; i < msgSize; i++){
-    float thisVal;
-
-    if(msg.isInt(i)){
-      OSCString = OSCString + String(msg.getInt(i));
-    }
-    else if(msg.isFloat(i)){
-      OSCString = OSCString + String(msg.getFloat(i), 6);
-    }
-    else if(msg.isDouble(i)){
-      OSCString = OSCString + String(msg.getDouble(i), 6);
-    }
-    //TODO Bools not working?
-    else if(msg.isBoolean(i)){
-      OSCString = OSCString + String(msg.getBoolean(i));
-    }
-    //TODO Strings
-
-    //Add a space if not the last element
-    if(i + 1 < msgSize){
-      OSCString = OSCString + " ";
-    }    
-  }
-  return OSCString;
+    writeMessageToFile(msg);
 }
 
 
@@ -234,7 +196,6 @@ void handleEvent(AceButton* button, uint8_t eventType, uint8_t buttonState) {
 //    kButtonStateUnknown
 
   switch (eventType) {
-
     //LONG PRESSES
     case AceButton::kEventLongPressed:
       if (button->getPin() == BUTTON_BOTTOM){
@@ -264,19 +225,22 @@ void toggleRecording(){
   else if(state == DISCONNECTED){
     //close file if it is being written
   }
+  updateDisplay();
 }
 
 unsigned long getRecordingDuration(){
   return millis() - recordingStartTime;
+  
 }
 
 //WIFI------------------------------------------------------------
 //Drop off current network and start up adhoc network for reconfiguration
-void reinitConnection(){
+void reinitConnection(){    
+    if(state == RECORDING)
+      closeFile();
+
     state = DISCONNECTED;
-    if(state == RECORDING){
-      //save and close file
-    }
+    
     updatePixel();
     updateDisplay();
     Config.immediateStart = true;
@@ -308,7 +272,7 @@ void updatePixel(){
     //WHITE (flash)
     if(getRecordingDuration() < 500){
       strip.setPixelColor(0, 100, 100, 100); //todo make this blink/pulse
-//      buzz();
+      buzz();
     }
 
     strip.show();
@@ -317,8 +281,7 @@ void updatePixel(){
 
 //DISPLAY-----------------------------------------------------
 void updateDisplay(){
-    switch(state){
-      
+    switch(state){      
       case DISCONNECTED:
         display.clear();
         display.setFont(ArialMT_Plain_10);
@@ -329,7 +292,6 @@ void updateDisplay(){
         display.display();
       break;
 
-      
       case READY:
         display.clear();
         display.setFont(ArialMT_Plain_10);
@@ -340,23 +302,22 @@ void updateDisplay(){
         display.display();
       break;
 
-   
       case RECORDING:
-        //calculate time to display
-        unsigned long totalSeconds = getRecordingDuration() / 1000;
-        unsigned long totalMinutes = totalSeconds / 60;
-        unsigned long secs = totalSeconds % 60;
-        unsigned long mins = totalMinutes % 60;
-        unsigned long hrs = totalMinutes / 60;
-        //enough room for 9999 hours       
-        char timeBuffer[22];
-        sprintf(timeBuffer, "RECORDING   %d:%02d:%02d", hrs, mins, secs);
+          //this is nice but expensive.  need to call it only each second
+//        //calculate time to display
+//        unsigned long totalSeconds = getRecordingDuration() / 1000;
+//        unsigned long totalMinutes = totalSeconds / 60;
+//        unsigned long secs = totalSeconds % 60;
+//        unsigned long mins = totalMinutes % 60;
+//        unsigned long hrs = totalMinutes / 60;
+//        //enough room for 9999 hours       
+//        char timeBuffer[22];
+//        sprintf(timeBuffer, "RECORDING   %d:%02d:%02d", hrs, mins, secs);
 
         display.clear();
         display.setFont(ArialMT_Plain_10);
-        display.drawString( 0, 0, timeBuffer );
-        //this line displays incoming OSC
-         //display.drawStringMaxWidth( 0, 26, 128, lastMessageAddress + " " + lastMessageValues );
+        display.drawString( 0, 0, "RECORDING");
+//        display.drawString( 0, 0, timeBuffer );
 
         display.drawString( 0, 13, "< save");        
         display.setFont(ArialMT_Plain_24);
@@ -377,9 +338,7 @@ void buzz() {
 }
 
 
-
 //FILE-HANDLING----------------------------
-
 //COUNT FILES--------------------
 int countFiles(){
   int count = 0;
@@ -443,11 +402,34 @@ void closeFile(){
 }
 
 //WRITE OSC MESSAGE TO FILE-----------------------
-void writeMessageToFile(){
+void writeMessageToFile(OSCMessage &msg){
+  
+  msg.getAddress(lastMessageAddress);
+  
+  currentFile.print(getRecordingDuration());
+  currentFile.print(" ");
+  currentFile.print(lastMessageAddress);
+  currentFile.print(" ");
 
-    //TODO can construct this array when OSC messages are recieved rather than casting Strings
-    sprintf(msgBuffer, "%d %s %s\n", getRecordingDuration(), lastMessageAddress, lastMessageValues.c_str());
-    currentFile.print(msgBuffer);
+  int msgSize = msg.size();
+  
+  for(int i = 0; i < msgSize; i++){
+    if(msg.isInt(i))
+      currentFile.print(msg.getInt(i));
+    else if(msg.isFloat(i))
+      currentFile.print(msg.getFloat(i), 6);
+    else if(msg.isDouble(i))
+      currentFile.print(msg.getDouble(i), 6);
+    else if(msg.isBoolean(i)) //TODO test bools nad Strings
+      currentFile.print(msg.getBoolean(i));
+    else if(msg.isString(i)){
+      msg.getString(i, msgStringValueBuffer);
+      currentFile.print(msgStringValueBuffer);
+    }
+    if(i + 1 < msgSize)  //Add a space if not the last element
+      currentFile.print(" ");
+  }
+  currentFile.print("\n");
 }
 
 

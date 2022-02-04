@@ -1,7 +1,7 @@
 ---
 title: DSTIKE ESP32 Watch
 date: 2022-02-02
-lastmod: 2022-02-04T18:31:16+11:00
+lastmod: 2022-02-05T00:45:57+11:00
 draft: false
 ---
 
@@ -36,14 +36,8 @@ I am developing an arduino application to achieve this. In its current state, th
 🔺🔷🔻🔷🔺🔷🔻🔷🔺🔷🔻🔷🔺🔷🔻🔷🔺
 
 ### Future steps
--  ~~press button to open file on SD card.~~
--  ~~write incoming OSC messages to SD card.~~
--  ~~press button to close file on SD card.~~
--  ~~display filename and recording state on screen~~
--  ~~indicate if device is receiving data, and other information via NeoPixel~~
-- ~~Receive bundles~~
-- Implement string and boolean message types
-- Optimization (fewer Strings)
+- dynamic display ( if it can be efficient)
+- playback (maybe someday)
 
 ---
 
