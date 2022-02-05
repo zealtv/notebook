@@ -32,7 +32,7 @@ I am developing an arduino application to achieve this. In its current state, th
 - AceButton https://github.com/bxparks/AceButton
 
 
-#### [💾 download](assets/packetpunk/packetPunk.ino)
+#### [💾 download](assets/packetpunk/packetpunk.ino)
 
 Example log playback patches for Max and Pure Data available [here](assets/packetpunk/packetpunkplayback.zip).
 
