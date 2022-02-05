@@ -1,7 +1,7 @@
 ---
-title: DSTIKE ESP32 Watch
+title: packetPunk - OSC logging on an ESP32 Watch
 date: 2022-02-02
-lastmod: 2022-02-05T18:46:53+11:00
+lastmod: 2022-02-05T18:51:12+11:00
 draft: false
 ---
 
@@ -32,9 +32,9 @@ I am developing an arduino application to achieve this. In its current state, th
 - AceButton https://github.com/bxparks/AceButton
 
 
-#### [💾 download](assets/packetPunk/packetPunk.ino)
+#### [💾 download](assets/packetpunk/packetPunk.ino)
 
-Example log playback patches for Max and Pure Data available [here](/assets/packetPunk).
+Example log playback patches for Max and Pure Data available [here](assets/packetpunk/packetpunkplayback.zip).
 
 🔺🔷🔻🔷🔺🔷🔻🔷🔺🔷🔻🔷🔺🔷🔻🔷🔺
 
