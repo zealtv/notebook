@@ -1,7 +1,7 @@
 ---
 title: gyrosc 2 pd
 date: 2022-01-31T20:07
-lastmod: 2022-02-02T22:09:01+11:00
+lastmod: 2022-02-05T18:45:25+11:00
 ---
 
 ![Pasted image 20220129134527.png](assets/Pasted%20image%2020220129134527.png)
@@ -12,5 +12,5 @@ This patch receives OSC data from [gyrosc](https://www.bitshapesoftware.com/inst
 
 The default port is 9999.
 
-Gyrosc is a very capable iOS application and can be [configured using a .CSV file](http://www.bitshapesoftware.com/instruments/gyrosc/configuration.html).  I use the application in tandem with an [ ESP32 based Watch](DSTIKE%20ESP32%20Watch.md) for logging data in the field. 
+Gyrosc is a very capable iOS application and can be [configured using a .CSV file](http://www.bitshapesoftware.com/instruments/gyrosc/configuration.html).  I use the application in tandem with an [ ESP32 based Watch](PacketPunk%20-%20OSC%20logging%20on%20the%20DSTIKE%20ESP32%20watch.md) for logging data in the field. 
 
