@@ -8,8 +8,9 @@ lastmod: 2022-02-02T22:09:01+11:00
 
 [download](assets/gyrosc2pd.pd)
 
-This patch receives OSC data from [gyrosc](https://www.bitshapesoftware.com/instruments/gyrosc/) , and tags them with a dynamic send object to be accessed globally via named receive objects. 
-
-Available receives are shown on the right, and useful code snippets are provided for easy patching.
+This patch receives OSC data from [gyrosc](https://www.bitshapesoftware.com/instruments/gyrosc/) , and tags them with a dynamic send object to be accessed globally via named receive objects.   Available receives are shown on the right, and useful code snippets are provided for easy patching.
 
 The default port is 9999.
+
+Gyrosc is a very capable iOS application and can be [configured using a .CSV file](http://www.bitshapesoftware.com/instruments/gyrosc/configuration.html).  I use the application in tandem with an [ ESP32 based Watch](DSTIKE%20ESP32%20Watch.md) for logging data in the field. 
+
