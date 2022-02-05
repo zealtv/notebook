@@ -5,6 +5,7 @@
 #include "SH1106.h"
 #include "FS.h"
 #include "SD_MMC.h"
+#include "esp32-hal-cpu.h";
 
 //OSC
 #include <WiFiUdp.h>
@@ -35,6 +36,7 @@ unsigned long recordingStartTime = -1000;
 unsigned long lastMessageTime = -1000;
 char lastMessageAddress[64] = "";
 String networkAddress = "...";
+String currentSSID = "...";
 char currentFilename[9] = "/000.LOG";
 int numFiles = 0;
 File currentFile;
@@ -67,13 +69,20 @@ OSCErrorCode error;
 
 long startTime = -1000;
 
+//this gets served to port 80 once the watch is configured
 void rootPage() {
-  char content[] = "Hello, world";
+  char content[] = "📦🤘";
   Server.send(200, "text/plain", content);
 }
 
 void setup() {
   Serial.begin(115200);
+
+  setCpuFrequencyMhz(240);  //mine is capping out at 160Mhz...
+  Serial.print("CPU Frequency is: ");
+  Serial.print(getCpuFrequencyMhz()); //Get CPU clock
+  Serial.print(" Mhz");
+  Serial.println();
 
   pinMode(WHEEL_PRESS, INPUT_PULLUP);
   pinMode(WHEEL_LEFT, INPUT_PULLUP);
@@ -109,6 +118,7 @@ void setup() {
   //config autoconnect.  see here: https://hieromon.github.io/AutoConnect/adconnection.html
   Config.beginTimeout = 15000; // Timeout sets to 15[s]
   Config.immediateStart = false;
+  Config.autoReconnect = true;  //attempt to reconnect to known networks if booted off. //good in theory but other logic needed to update display and state if knocked off network.
 
   Config.apid = "packetPunk";
   Config.psk  = "packetPunk";
@@ -127,6 +137,8 @@ void initConnection() {
   if (Portal.begin()) {
     state = READY;
     networkAddress = WiFi.localIP().toString();
+    currentSSID = WiFi.SSID();
+    Serial.println("Connected to " + currentSSID);
     Udp.begin(localPort);
     updateDisplay();
   }
@@ -138,9 +150,9 @@ void initConnection() {
 //-------------------------
 void loop() {
   getOSC();
-//  Portal.handleClient(); //seems to be fine without it
   checkButtons();
   updatePixel();
+  Portal.handleClient(); //attempt to reconnect if off network, and serve root page at top of sketch when connected
 //  updateDisplay();  //<-expensive
 }
 
@@ -265,14 +277,14 @@ void updatePixel(){
     }
 
     //if recent data
-    if(millis() - lastMessageTime < 10)
+    if(millis() - lastMessageTime < 2)
       strip.setPixelColor(0, 0, 0, 30); //todo make this blink/pulse
 
     //if recent start
     //WHITE (flash)
     if(getRecordingDuration() < 500){
       strip.setPixelColor(0, 100, 100, 100); //todo make this blink/pulse
-      buzz();
+//      buzz();
     }
 
     strip.show();
@@ -297,8 +309,9 @@ void updateDisplay(){
         display.setFont(ArialMT_Plain_10);
         display.drawString( 0, 0, "READY");
         display.drawString( 0, 13, "< start");
-        display.drawString( 0, 36, "ip:    " + networkAddress);
-        display.drawString( 0, 49, "port: 9000");
+        display.drawString( 0, 26, "SSID:  " + currentSSID);
+        display.drawString( 0, 39, "ip:       " + networkAddress);
+        display.drawString( 0, 52, "port:    9000");
         display.display();
       break;
 

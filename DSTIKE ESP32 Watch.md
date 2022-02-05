@@ -1,7 +1,7 @@
 ---
 title: DSTIKE ESP32 Watch
 date: 2022-02-02
-lastmod: 2022-02-05T00:45:57+11:00
+lastmod: 2022-02-05T15:54:38+11:00
 draft: false
 ---
 
@@ -18,10 +18,11 @@ I am developing an arduino application to achieve this. In its current state, th
 
 
 ### usage
-- Follow onscreen instructions to connect to network.
-- OSC messages are received on port 9000 and displayed on screen.
+- Follow onscreen instructions to connect to network (password is packetPunk)
+- OSC messages are received on port 9000.
 - Press the top left button to start logging, press again to save file.
 - Long-press  bottom left button to disconnect from current WiFi network.
+- If you need to manage saved networks use [this sketch](https://github.com/Hieromon/AutoConnect/blob/master/examples/Credential/Credential.ino).
 
 ### Required libraries
 - OSC https://github.com/CNMAT/OSC
@@ -36,6 +37,7 @@ I am developing an arduino application to achieve this. In its current state, th
 🔺🔷🔻🔷🔺🔷🔻🔷🔺🔷🔻🔷🔺🔷🔻🔷🔺
 
 ### Future steps
+- Better dynamic WiFi management (update state if knocked off network etc)
 - dynamic display ( if it can be efficient)
 - playback (maybe someday)
 
