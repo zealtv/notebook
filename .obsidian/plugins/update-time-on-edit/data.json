@@ -1,0 +1,15 @@
+{
+  "dateFormat": "yyyy-MM-dd'T'HH:mm:ssxxx",
+  "readDateFormat": "yyyy-MM-dd'T'HH:mm:ssxxx",
+  "useDifferentReadFormat": false,
+  "enableCreateTime": false,
+  "headerUpdated": "lastmod",
+  "headerCreated": "created",
+  "minMinutesBetweenSaves": 1,
+  "ignoreGlobalFolder": [
+    "assets",
+    "Templates",
+    "assets/esp-watch-demo"
+  ],
+  "ignoreCreatedFolder": []
+}

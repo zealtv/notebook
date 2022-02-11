@@ -1,0 +1,120 @@
+{
+  "main": {
+    "id": "780996f8bce66546",
+    "type": "split",
+    "children": [
+      {
+        "id": "509fb74ed8396bf6",
+        "type": "leaf",
+        "state": {
+          "type": "empty",
+          "state": {}
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "04f6afa927340a37",
+    "type": "split",
+    "children": [
+      {
+        "id": "fdab8aef3f0556ea",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "03371d1b2b894143",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "0708c9bf4bf9ae5a",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 233.5
+  },
+  "right": {
+    "id": "ce3d68700557c778",
+    "type": "split",
+    "children": [
+      {
+        "id": "8befdc6438438112",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "488e99a49d495f87",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "90857877c5e96448",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "a0c803f3f74e641c",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "509fb74ed8396bf6",
+  "lastOpenFiles": [
+    "PacketPunk.md",
+    "gyrosc 2 pd.md",
+    "NEXTECH QC3868.md",
+    "README.md",
+    "portable video streaming approaches for art installations.md",
+    "Templates/basic note.md",
+    "assets/Pasted image 20220202163610.png",
+    "connection express.md",
+    "Templates/Date and Time.md",
+    "_index.md"
+  ]
+}
