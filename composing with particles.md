@@ -2,7 +2,7 @@
 title: composing with particles
 date: 2022-02-12
 lastmod: 2022-02-13T21:35:40+11:00
-draft: true
+draft: false
 ---
 
 I am working on a project that requires me to move sounds around an irregular multi-speaker array system.  The aesthetic aim is to have sounds travel through the space as if they are on the wind.
