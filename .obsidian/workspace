@@ -7,8 +7,12 @@
         "id": "509fb74ed8396bf6",
         "type": "leaf",
         "state": {
-          "type": "empty",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "composing with particles.md",
+            "mode": "source",
+            "source": false
+          }
         }
       }
     ],
@@ -65,6 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "composing with particles.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -81,6 +86,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "composing with particles.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -106,15 +112,15 @@
   },
   "active": "509fb74ed8396bf6",
   "lastOpenFiles": [
-    "PacketPunk.md",
-    "gyrosc 2 pd.md",
+    "composing with particles.md",
+    "PacketPunk - OSC logging on the DSTIKE ESP32 watch.md",
     "NEXTECH QC3868.md",
+    "gyrosc 2 pd.md",
+    "connection express.md",
+    "PacketPunk.md",
     "README.md",
     "portable video streaming approaches for art installations.md",
     "Templates/basic note.md",
-    "assets/Pasted image 20220202163610.png",
-    "connection express.md",
-    "Templates/Date and Time.md",
-    "_index.md"
+    "assets/Pasted image 20220202163610.png"
   ]
 }
