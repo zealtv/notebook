@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "composing with particles.md",
+            "file": "Composing in Virtual Spaces.md",
             "mode": "source",
             "source": false
           }
@@ -53,7 +53,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 233.5
+    "width": 233.5,
+    "collapsed": true
   },
   "right": {
     "id": "ce3d68700557c778",
@@ -69,7 +70,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "composing with particles.md",
+                "file": "Composing in Virtual Spaces.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -86,7 +87,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "composing with particles.md",
+                "file": "Composing in Virtual Spaces.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -112,15 +113,15 @@
   },
   "active": "509fb74ed8396bf6",
   "lastOpenFiles": [
+    "Composing in Virtual Spaces.md",
     "composing with particles.md",
+    "notes on OSC in Pure Data.md",
+    "gyrosc 2 pd.md",
     "PacketPunk - OSC logging on the DSTIKE ESP32 watch.md",
     "NEXTECH QC3868.md",
-    "gyrosc 2 pd.md",
     "connection express.md",
     "PacketPunk.md",
     "README.md",
-    "portable video streaming approaches for art installations.md",
-    "Templates/basic note.md",
-    "assets/Pasted image 20220202163610.png"
+    "portable video streaming approaches for art installations.md"
   ]
 }

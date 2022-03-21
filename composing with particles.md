@@ -1,7 +1,7 @@
 ---
 title: composing with particles
 date: 2022-02-12
-lastmod: 2022-02-13T21:35:40+11:00
+lastmod: 2022-02-13T22:55:25+11:00
 draft: false
 ---
 
