@@ -1,7 +1,7 @@
 ---
 title: Composing in Virtual Spaces
 date: 2022-03-21
-lastmod: 2022-03-21T16:37:01+11:00
+lastmod: 2022-03-21T16:39:14+11:00
 draft: true
 ---
 ```
