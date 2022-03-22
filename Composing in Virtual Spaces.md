@@ -1,7 +1,7 @@
 ---
 title: Composing in Virtual Spaces
 date: 2022-03-21
-lastmod: 2022-03-22T20:35:46+11:00
+lastmod: 2022-03-22T20:41:58+11:00
 ---
 ```
 These notes were written for a presentation to be given at The Victorian College of the Arts, March 23rd 2020.
@@ -249,6 +249,8 @@ http://www.jaroslawkapuscinski.com/work-mondrianvariations.html
 
 http://www.tracyredhead.com/?q=content/semantic-machine
 
+https://zeal.co/notebook/assets/Pasted%20image%2020220322201412.png
+
 https://www.fmod.com/
 
 https://www.audiokinetic.com/en/products/wwise
@@ -259,8 +261,7 @@ https://www.youtube.com/watch?v=tJyutKQEpLk
 
 https://www.youtube.com/watch?v=ywen9LQ6Wn4
 
-http://localhost:1313/notebook/assets/Aileron_One_Arrangment.png
-
+https://zeal.co/notebook/assets/Aileron_One_Arrangment.png
 
 https://www.youtube.com/watch?v=QEDEZbJYuZo
 
