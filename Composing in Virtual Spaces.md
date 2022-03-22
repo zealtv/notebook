@@ -2,7 +2,6 @@
 title: Composing in Virtual Spaces
 date: 2022-03-21
 lastmod: 2022-03-22T20:35:46+11:00
-draft: true
 ---
 ```
 These notes were written for a presentation to be given at The Victorian College of the Arts, March 23rd 2020.
