@@ -1,7 +1,7 @@
 ---
 title: An Introduction to Max by way of Microtonality
 date: 2022-04-03
-lastmod: 2022-04-03T14:01:53+10:00
+lastmod: 2022-04-03T14:03:26+10:00
 draft: false
 ---
 [Download the patch](assets/microtonal-keyboard.maxpat)
