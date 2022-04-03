@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Composing in Virtual Spaces.md",
+            "file": "Introduction to Max by way of Microtonality.md",
             "mode": "source",
             "source": false
           }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Composing in Virtual Spaces.md",
+                "file": "Introduction to Max by way of Microtonality.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -86,7 +86,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Composing in Virtual Spaces.md",
+                "file": "Introduction to Max by way of Microtonality.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -112,6 +112,7 @@
   },
   "active": "509fb74ed8396bf6",
   "lastOpenFiles": [
+    "Introduction to Max by way of Microtonality.md",
     "Composing in Virtual Spaces.md",
     "gyrosc 2 pd.md",
     "NEXTECH QC3868.md",
@@ -120,7 +121,6 @@
     "notes on OSC in Pure Data.md",
     "PacketPunk - OSC logging on the DSTIKE ESP32 watch.md",
     "PacketPunk.md",
-    "README.md",
-    "portable video streaming approaches for art installations.md"
+    "README.md"
   ]
 }
