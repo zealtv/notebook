@@ -1,9 +1,13 @@
 ---
 title: An Introduction to Max by way of Microtonality
 date: 2022-04-03
-lastmod: 2022-04-03T14:03:26+10:00
+lastmod: 2022-04-04T10:14:22+10:00
 draft: false
 ---
+```
+This is a tutorial outline for a tailored introduction to Max session.
+```
+
 [Download the patch](assets/microtonal-keyboard.maxpat)
 
 [Max](https://cycling74.com) is a visual programming environment for multimedia.  It excels at synthesis, rapid prototyping, interaction design, interactive installation, video and graphics manipulation and performance, generative music creation, digital signals processing, and a lot more.  I find I spend much of my time in Max as it is an excellent, and reliable home base for tech-enabled music and interaction applications. 
@@ -73,3 +77,4 @@ We'll then use encapsulation to make it polyphonic like so:
 * Creating and outputting signals
 * Packing and unpacking lists
 * Using poly, route, and encapsulation to implement polyphony
+* Accessing and navigating in-built tutorials
