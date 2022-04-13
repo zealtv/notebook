@@ -35,7 +35,7 @@ So how can we fit that into a science-shaped hole?
 
 This article I think sums up well the leap from new ontology to a new frame of reality - a new science: https://runningfather.wordpress.com/2013/03/22/new-to-the-philosophere-panexperiential-holism-and-its-implications-by-justin/
 
-Jacques Vallee exemplifies this attitude of *arrationality* with glorious flare.   To see a new ontology in practice is jarring. 
+Jacques Vallee exemplifies this attitude of *arationality* with glorious flare.   To see a new ontology in practice is jarring. 
 
 {{< youtube 3wF9IVqdOQY>}}
 
