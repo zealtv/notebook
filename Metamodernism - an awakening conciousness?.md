@@ -1,7 +1,7 @@
 ---
 title: Metamodernism - an awakening conciousness?
 date: 2022-04-12
-lastmod: 2022-04-13T14:57:20+10:00
+lastmod: 2022-04-13T15:32:01+10:00
 draft: false
 ---
 
@@ -48,6 +48,8 @@ https://www.joelightfoot.org/post/the-metamodern-solarpunk-manifesto
 🌳👁✨🌳👁✨🌳👁✨🌳👁✨🌳👁✨🌳👁✨🌳👁✨🌳👁✨
 
 {{< youtube kl0caFRFoms >}}
+
+{{< youtube e6mwzoxLwoQ >}}
 
 {{< youtube XyneZcV43z0>}}
 
