@@ -1,7 +1,7 @@
 ---
 title: An Introduction to Max by way of Microtonality
 date: 2022-04-03
-lastmod: 2022-04-04T10:14:22+10:00
+lastmod: 2022-04-22T15:31:05+10:00
 draft: false
 ---
 ```
@@ -78,3 +78,35 @@ We'll then use encapsulation to make it polyphonic like so:
 * Packing and unpacking lists
 * Using poly, route, and encapsulation to implement polyphony
 * Accessing and navigating in-built tutorials
+
+---
+
+# Implementing polyphony
+
+```
+In Max, see: Documentation -> MSP -> Polyphony
+```
+
+I you look at the first tutorial in the documentation noted above, you can see they demonstrate the "hard way" to realise polyphony in Max.  This is similar to the demo provided above: 
+
+![](assets/Pasted%20image%2020220403131957.png)
+The tutorial discuss the cons of this approach, noting the patching complexity and CPU efficiency considerations.  The poly~ object comes to the rescue here.
+
+We're going to start with making our patch polyphonic the "hard way", and as an extension, you may want to explore using the poly~ object to make your match more efficient - it also helps us handle things like release envelopes more effectively.  This approach is, however, more complex, so starting "the hard way" is in some ways easier!
+
+![](assets/Pasted%20image%2020220422153122.png)
+
+[Download the patch!](assets/poly-just-intonation-synth.zip)
+
+For more complex synthesis, take a look at the MSP -> Tutorials -> Basics page in the Max documentation.
+
+
+## Concepts
+* Abstraction vs Encapsulation
+* inlets and outlets
+* File paths
+* Simple project management
+* Routing audio between applications
+* audio processing with BEAP, M4L, VST, and AU
+* send and receives
+* ctrlin and mapping

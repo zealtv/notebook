@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Metamodernism - an awakening conciousness?.md",
+            "file": "Introduction to Max by way of Microtonality.md",
             "mode": "source",
             "source": false
           }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Metamodernism - an awakening conciousness?.md",
+                "file": "Introduction to Max by way of Microtonality.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -86,7 +86,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Metamodernism - an awakening conciousness?.md",
+                "file": "Introduction to Max by way of Microtonality.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -112,13 +112,13 @@
   },
   "active": "509fb74ed8396bf6",
   "lastOpenFiles": [
+    "Introduction to Max by way of Microtonality.md",
     "Metamodernism - an awakening conciousness?.md",
     "Composing in Virtual Spaces.md",
     "composing with particles.md",
     "connection express.md",
     "gyrosc 2 pd.md",
     "How to start learning creative software development.md",
-    "Introduction to Max by way of Microtonality.md",
     "NEXTECH QC3868.md",
     "notes on OSC in Pure Data.md",
     "portable video streaming approaches for art installations.md"

@@ -1,7 +1,7 @@
 ---
 title: Metamodernism - an awakening conciousness?
 date: 2022-04-12
-lastmod: 2022-04-13T15:32:01+10:00
+lastmod: 2022-04-14T12:30:16+10:00
 draft: false
 ---
 
