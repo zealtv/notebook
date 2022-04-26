@@ -1,7 +1,7 @@
 ---
 title: Neurotheology, aliens, and interpreting the immaterial
 date: 2022-04-23
-lastmod: 2022-04-26T23:25:28+10:00
+lastmod: 2022-04-26T23:38:29+10:00
 draft: false
 ---
 ```
@@ -25,7 +25,7 @@ Easier said than done when the most relevant data consists of profound, subjecti
 
 ## Another perspective 
 
-Iain McGilchrist describes specific relationships between relationships between areas of the brain associated with features of perceptual hallucinations - demonstrated by way of brain lesions.  
+Iain McGilchrist describes specific relationships between areas of the brain associated with features of perceptual hallucinations - demonstrated by way of brain lesions.  
 
 This draws some questions from the perspective above.
 
@@ -48,11 +48,13 @@ McGilchrist is the first citable connection I have come across between integral 
 On one hand, brain lesions are able to create very specific hallucinations or delusions, like a familiar persons eyes being distorted, or the straight lines of houses skewed diagonally.   [[note  Oliver Sacks]]
 
 
-On the other hand, a significant number of otherwise ordinary people describe unbelievably novel, real, surreal, and unreal experiences complete with a set of esoteric details.  This set of details shares easily identifiable motifs between individuals and dates back several thousand years back *at least*.   
+On the other hand, a significant number of otherwise ordinary people describe unbelievably novel, real, surreal, and unreal experiences complete with a set of esoteric details.  
 
-Interpreted as devils, aliens, elves, mantids, greys.  
+Repeating themes emerge from different individual's accounts and reports date several thousand years back *at least*.   
 
-As varied as those descriptions are, they still suggests some sort of cultural perceptual layer matching the pattern of some sort of *thing.*  
+Devils, demons, aliens, elves, mantids, greys.  
+
+These varied descriptions, when viewed through their respective cultural and personal interpretation have the clear pattern of some sort of *thing.*  
 
 Like a *super-humanoid*? 
 or a *Bizaro-humanoid*? 
