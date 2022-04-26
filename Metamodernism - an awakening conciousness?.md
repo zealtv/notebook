@@ -1,7 +1,7 @@
 ---
 title: Metamodernism - an awakening conciousness?
 date: 2022-04-12
-lastmod: 2022-04-14T12:30:16+10:00
+lastmod: 2022-04-26T20:55:13+10:00
 draft: false
 ---
 
@@ -9,7 +9,7 @@ draft: false
 
 **Metamodernism.  Everybody.  We should probably get on board with this.**
 
-Maybe it's just me but it seems like there is a collision of ideas going on.  Some of the ideas go by terms like *meta-modernism*, *integral*, *process philosophy*, *process theology*, *pan-experientalism*, *panpsychism*, *organic cosmology*, and probably a lot more.  Within this area of thinking, there are quite a few people with a new sort of religious conviction - proposing a sort of proto-framework that values all perspectives.... ah I think I lost my way in describing it.  It's a lot of ideas all at once.  I'm just going to throw down a smattering of them.
+Maybe it's just me but it seems like there is a collision of ideas going on.  Some of the ideas go by terms like *meta-modernism*, *integral*, *process philosophy*, *process theology*, *pan-experientalism*, *panpsychism*, *organic cosmology*, and probably a lot more.  Within this area of thinking, there are quite a few people with a new sort of spiritual conviction - proposing a sort of proto-framework that values all perspectives.... ah I think I lost my way in describing it.  It's a lot of ideas all at once.  I'm just going to throw down a smattering of them.
 
 ![](assets/Pasted%20image%2020220413142256.png)
 
@@ -35,7 +35,7 @@ So how can we fit that into a science-shaped hole?
 
 This article I think sums up well the leap from new ontology to a new frame of reality - a new science: https://runningfather.wordpress.com/2013/03/22/new-to-the-philosophere-panexperiential-holism-and-its-implications-by-justin/
 
-Jacques Vallee exemplifies this attitude of *arationality* with glorious flare.   To see a new ontology in practice is jarring. 
+Jacques Vallee exemplifies this attitude of *transrationality* with spectacular flare. 
 
 {{< youtube 3wF9IVqdOQY>}}
 
@@ -45,7 +45,7 @@ I find this emerging world view not only a coherent and disorientating reflex to
 https://www.joelightfoot.org/post/the-metamodern-solarpunk-manifesto
 
 
-🌳👁✨🌳👁✨🌳👁✨🌳👁✨🌳👁✨🌳👁✨🌳👁✨🌳👁✨
+🌳👁✨🌳👁✨🌳👁✨🌳👁✨🌳👁✨🌳👁✨🌳👁✨
 
 {{< youtube kl0caFRFoms >}}
 
@@ -56,3 +56,5 @@ https://www.joelightfoot.org/post/the-metamodern-solarpunk-manifesto
 {{<youtube ZckXe4vF34w>}}
 
 {{<youtube Ml2ZN4cFK0k>}}
+
+

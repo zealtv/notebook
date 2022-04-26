@@ -1,7 +1,7 @@
 ---
 title: An Introduction to Max by way of Microtonality
 date: 2022-04-03
-lastmod: 2022-04-22T15:31:05+10:00
+lastmod: 2022-04-23T15:53:44+10:00
 draft: false
 ---
 ```
@@ -90,6 +90,7 @@ In Max, see: Documentation -> MSP -> Polyphony
 I you look at the first tutorial in the documentation noted above, you can see they demonstrate the "hard way" to realise polyphony in Max.  This is similar to the demo provided above: 
 
 ![](assets/Pasted%20image%2020220403131957.png)
+
 The tutorial discuss the cons of this approach, noting the patching complexity and CPU efficiency considerations.  The poly~ object comes to the rescue here.
 
 We're going to start with making our patch polyphonic the "hard way", and as an extension, you may want to explore using the poly~ object to make your match more efficient - it also helps us handle things like release envelopes more effectively.  This approach is, however, more complex, so starting "the hard way" is in some ways easier!

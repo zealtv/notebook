@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Introduction to Max by way of Microtonality.md",
+            "file": "Neurotheology, aliens, and understanding the immaterial.md",
             "mode": "source",
             "source": false
           }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Introduction to Max by way of Microtonality.md",
+                "file": "Neurotheology, aliens, and understanding the immaterial.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -86,7 +86,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Introduction to Max by way of Microtonality.md",
+                "file": "Neurotheology, aliens, and understanding the immaterial.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -112,15 +112,15 @@
   },
   "active": "509fb74ed8396bf6",
   "lastOpenFiles": [
-    "Introduction to Max by way of Microtonality.md",
+    "Neurotheology, aliens, and understanding the immaterial.md",
+    "Citing Suggestions 🥦🍽🥦.md",
     "Metamodernism - an awakening conciousness?.md",
+    "Introduction to Max by way of Microtonality.md",
+    "How to start learning creative software development.md",
     "Composing in Virtual Spaces.md",
     "composing with particles.md",
     "connection express.md",
     "gyrosc 2 pd.md",
-    "How to start learning creative software development.md",
-    "NEXTECH QC3868.md",
-    "notes on OSC in Pure Data.md",
-    "portable video streaming approaches for art installations.md"
+    "NEXTECH QC3868.md"
   ]
 }
