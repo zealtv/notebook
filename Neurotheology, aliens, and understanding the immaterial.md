@@ -1,7 +1,7 @@
 ---
 title: Neurotheology, aliens, and interpreting the immaterial
 date: 2022-04-23
-lastmod: 2022-04-26T23:38:29+10:00
+lastmod: 2022-04-30T20:11:48+10:00
 draft: false
 ---
 ```
@@ -15,7 +15,7 @@ I've changed my mind.  Mind changing good 👍.
 
 {{<youtube MU4_vX1eaiE>}}
 
-In his discussion with Jefferey Mishlove, Andy Newberg notes the importance of  "*being open to all paradigms.  There is value in being reductionistic at times, and there is value in not*".  This strikes me as another example of an integral, or [meta-modern](Metamodernism%20-%20an%20awakening%20conciousness?.md) stance, looking to draw on transrational conceptions to expand the bounds of  understanding.  
+In his discussion with Jefferey Mishlove, Andy Newberg notes the importance of  "*being open to all paradigms.  There is value in being reductionistic at times, and there is value in not*".  This strikes me as another example of an integral, or [meta-modern](Metamodernism%20and%20the%20evolution%20of%20consciousness.md) stance, looking to draw on transrational conceptions to expand the bounds of  understanding.  
 
 This kind of work [has been pursued in the past](https://en.wikipedia.org/wiki/God_helmet), and not unexpectedly has proven controversial.  It seems extracting new the most value from these sorts of endeavours calls for a willingness to step back from ones own perspective, and a willingness to let a bigger picture come into view
 

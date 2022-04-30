@@ -1,5 +1,5 @@
 ---
-title: Metamodernism - an awakening conciousness?
+title: Metamodernism and the evolution of consciousness
 date: 2022-04-12
 lastmod: 2022-04-26T20:55:13+10:00
 draft: false
