@@ -1,16 +1,12 @@
 ---
 title: Interfacing with distributed speaker arrays
 date: 2022-04-30
-lastmod: 2022-05-01T11:39:44+10:00
+lastmod: 2022-05-01T11:51:34+10:00
 draft: false
 git: https://github.com/zealtv/belief-control
 ---
 
-Continuing work on a system I was exploring earlier here  ▷
-[composing with particles](composing%20with%20particles.md)
-
-
-In the previous [exploration](composing%20with%20particles.md) I was working with TouchDesigner.  Here I have moved to Max using its native particle system: \[jit.shiva] and \[jit.vishnu].  The patch processes the particle matrix to detect particle births, deaths, and movements, and transforms that data to an OSC schema for moving virtual sound objects through a distributed speaker array. 
+Continuing work on a system I was exploring earlier here  \[[composing with particles](composing%20with%20particles.md)], I was working with TouchDesigner.  Here I have moved to Max using its native particle system: \[jit.shiva] and \[jit.vishnu].  The patch processes the particle matrix to detect particle births, deaths, and movements, and transforms that data to an OSC schema for moving virtual sound objects through a distributed speaker array. 
 
 ![](assets/Screen%20Shot%202022-04-30%20at%208.06.06%20pm.png)
 
