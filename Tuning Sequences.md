@@ -15,7 +15,7 @@ Matt Harloff's tuning sequence is a piece of art with intention.  Its functional
 
 The quality of the sound comes from the slight imperfections of that number of individual horns, combined with the perfect ratios of just intonation in the chord spacing.
 
-The arrangement leverages a functional understanding of musical perception.  Periods of complete dissonance A.K.A  **🔭SPACECHORDS🔭**  which are three semitones above and below the root, with root in the bass
+The arrangement leverages a functional understanding of musical perception.  Periods of complete dissonance A.K.A  **🔭SPACECHORDS🔭**  which are half-step clusters, three semitones above and below the Bb root.
 
 
 serve to disorient the listener before modulating to a new key (as well as serving an additional functional training role).  
