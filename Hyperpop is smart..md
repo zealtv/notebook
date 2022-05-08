@@ -1,11 +1,11 @@
 ---
 title: Hyperpop is smart.
 date: 2022-05-08
-lastmod: 2022-05-08T15:26
+lastmod: 2022-05-08T18:33
 draft: false
 ---
 
-In SOPHIE's Immaterial - there are no drums, just one big, fuck off mono-synth.  There is a line of attention throughout the verses that surgically leads to one big clap every 8 bars. 
+In SOPHIE's Immaterial - there are no drums, just one big, fuck off mono-synth.  There is at least one *line of attention* throughout the verse that surgically leads to one big clap every 8 bars. 
 
 ~~~
 Insert musical analysis of Immaterial here.
@@ -13,7 +13,9 @@ Insert musical analysis of Immaterial here.
 
 {{<youtube Kv3yIv9nwf8>}}
 
-These moments of heavy percussion with a lot of weight  are sparing enough that you can preempt them, giving you enough time to through your head back a little, swing it forward and get a satisfying head bang right on the hit.  It feels fantastic. 
+These moments of weighty percussion  are sparing enough that you can preempt them–giving you time enough to throw your head back a little, swing it forward, and get a satisfying head bang right on the hit.  
+
+Those previous 8 bars of anticipation lead up to one single, fantastic head bang.  And it feels great.  
 
 ~~~
 Headbanging is not just for metal - it's for everyone.

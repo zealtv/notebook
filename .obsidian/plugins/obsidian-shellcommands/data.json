@@ -14,7 +14,7 @@
         "default": "git add .; git commit -m \"commited changes to {{file_name}} 📓\"; git push origin main"
       },
       "shells": {},
-      "alias": "git push notebook",
+      "alias": "notebook git push",
       "confirm_execution": false,
       "ignore_error_codes": [],
       "output_channels": {
@@ -28,7 +28,7 @@
         "default": "cd ../..; git add .; git commit -m \"updating notebook 📓\"; git push origin main"
       },
       "shells": {},
-      "alias": "git push zeal.co",
+      "alias": "zeal.co git push",
       "confirm_execution": false,
       "ignore_error_codes": [],
       "output_channels": {
