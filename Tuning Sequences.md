@@ -1,7 +1,7 @@
 ---
 title: "Matt Harloffs Tuning Sequence - and tuning sequence as functional application of art"
 date: 2022-05-07
-lastmod: 2022-05-08T15:29
+lastmod: 2022-05-08T18:38
 draft: false
 ---
 
@@ -28,7 +28,9 @@ But no!
 PUNCH!
 UPPERCUT!
 5 X FORTE!
-KEYCHANGE!
+
+💥 KEYCHANGE! 💥 
+
 BE SCARED!
 ```
 
