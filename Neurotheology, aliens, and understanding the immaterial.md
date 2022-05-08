@@ -72,12 +72,12 @@ And why is...
 
 **What sort of insidious, Jungian brain implosion is so specific and pronounced?** 
 
-**What sort of evolutionary survival mechanism does this perceptual category provide? Why did it evolve?**
 
+If its perception is not due to a localised brain region, but instead involves a coordinated effort on behalf of the brain, what is it responding to and and [why the hell are aliens communicating telepathically to groups of children?  ](https://en.wikipedia.org/wiki/Ariel_School_UFO_incident)
 
-If its perception is not due to a localised brain region, but instead involves a coordinated effort on behalf of the brain, what is it responding to and and **why the hell are aliens communicating telepathically to groups of children?**  
+Whether that is actually happening or not is not the question.  
 
-Whether that is actually happening or not is not the question.  The question is why the hell does is it seem like it is?
+The question does is why does it seem like it is?
 
 Jacques Vallee describes the phenomenon acting as a *metasystem*.  It's not what it seems.... But it is something... so what the fuck is it?  What part of **us** expresses itself like **that**?   Because that too, is fucked.  
 
@@ -91,13 +91,3 @@ A hullination that contains an absurd truth they are unable to decipher - but so
 ```
 
 Maybe this perceptual hallucination eternally evades us, nevertheless leading us.  Like a carrot on a stick we carry in front of ourselves.  Forever.
-
----
-## crack4grifters
-
-On another side of this you then have an infinite array of grifters pushing an almost infinite array of grandMetaNarratives(tm).  If it wasn't for the disdainful exploitation,  these could be excellent 
- (and persuasive) myths that blur fiction and science fiction.
-
-But no.  Into that boiling oil go people whose lives have been entirely altered by genuine experiences.  
-
-Not a fan of some people, I must say.

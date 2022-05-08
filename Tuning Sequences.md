@@ -1,7 +1,7 @@
 ---
 title: "Matt Harloffs Tuning Sequence - and tuning sequence as functional application of art"
 date: 2022-05-07
-lastmod: 2022-05-08T18:38
+lastmod: 2022-05-08T18:43
 draft: false
 ---
 
