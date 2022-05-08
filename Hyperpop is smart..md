@@ -8,7 +8,7 @@ draft: false
 In SOPHIE's Immaterial - there are no drums, just one big, fuck off mono-synth.  There is a line of attention throughout the verses that surgically leads to one big clap every 8 bars. 
 
 ~~~
-This is a place holder a musical analysis of how immaterial guides the listeners attention, which is the whole point of this piece of writing.
+Insert musical analysis of Immaterial here.
 ~~~
 
 {{<youtube Kv3yIv9nwf8>}}
