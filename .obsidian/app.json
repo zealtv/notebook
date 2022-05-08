@@ -9,5 +9,9 @@
   "showUnsupportedFiles": true,
   "spellcheck": true,
   "showFrontmatter": true,
-  "fileSortOrder": "byModifiedTime"
+  "fileSortOrder": "byModifiedTime",
+  "spellcheckDictionary": [
+    "polymetric",
+    "Hyperpop"
+  ]
 }
