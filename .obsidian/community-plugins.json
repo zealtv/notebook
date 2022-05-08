@@ -1,4 +1,6 @@
 [
   "obsidian-languagetool-plugin",
-  "update-time-on-edit"
+  "update-time-on-edit",
+  "cm-typewriter-scroll-obsidian",
+  "obsidian-shellcommands"
 ]
