@@ -1,8 +1,9 @@
 ---
 title: Citing Suggestions 🥦🍽🥦
 date: 2022-04-26
-lastmod: 2022-04-26T23:28:10+10:00
+lastmod: 2022-05-06T20:44:14+10:00
 draft: false
+git: https://github.com/zealtv/notebook
 ---
 
 ```

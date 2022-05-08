@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Interfacing with distributed speaker arrays.md",
+            "file": "Tuning Sequences.md",
             "mode": "source",
             "source": false
           }
@@ -40,7 +40,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "vice",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -49,7 +49,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -69,7 +70,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Interfacing with distributed speaker arrays.md",
+                "file": "Tuning Sequences.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -86,7 +87,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Interfacing with distributed speaker arrays.md",
+                "file": "Tuning Sequences.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -112,15 +113,15 @@
   },
   "active": "509fb74ed8396bf6",
   "lastOpenFiles": [
-    "Interfacing with distributed speaker arrays.md",
-    "Website todos.md",
-    "Metamodernism and the evolution of consciousness.md",
+    "Tuning Sequences.md",
+    "Hyperpop is smart..md",
     "Neurotheology, aliens, and understanding the immaterial.md",
     "Citing Suggestions 🥦🍽🥦.md",
-    "Introduction to Max by way of Microtonality.md",
-    "How to start learning creative software development.md",
+    "Interfacing with distributed speaker arrays.md",
     "Composing in Virtual Spaces.md",
-    "composing with particles.md",
-    "connection express.md"
+    "Website todos.md",
+    "Metamodernism and the evolution of consciousness.md",
+    "Introduction to Max by way of Microtonality.md",
+    "How to start learning creative software development.md"
   ]
 }

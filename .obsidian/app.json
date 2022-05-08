@@ -8,5 +8,6 @@
   "useMarkdownLinks": true,
   "showUnsupportedFiles": true,
   "spellcheck": true,
-  "showFrontmatter": true
+  "showFrontmatter": true,
+  "fileSortOrder": "byModifiedTime"
 }
