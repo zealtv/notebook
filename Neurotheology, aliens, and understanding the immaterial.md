@@ -1,7 +1,7 @@
 ---
 title: Neurotheology, aliens, and interpreting the immaterial
 date: 2022-04-23
-lastmod: 2022-05-08T22:11
+lastmod: 2022-05-08T22:12
 draft: false
 ---
 ```
@@ -91,5 +91,3 @@ A hullination that contains an absurd truth they are unable to decipher - but so
 ```
 
 Maybe this perceptual hallucination eternally evades us, nevertheless leading us.  Like a carrot on a stick we carry in front of ourselves.  Forever.
-
-{{<youtube YLAMYG1KJAE>}}
