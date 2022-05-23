@@ -1,7 +1,7 @@
 ---
 title: An Introduction to Max by way of Microtonality
 date: 2022-04-03
-lastmod: 2022-04-23T15:53:44+10:00
+lastmod: 2022-05-10T12:04
 draft: false
 ---
 ```
@@ -111,3 +111,9 @@ For more complex synthesis, take a look at the MSP -> Tutorials -> Basics page i
 * audio processing with BEAP, M4L, VST, and AU
 * send and receives
 * ctrlin and mapping
+
+---
+
+If we were to instead take a short cut to getting just intonation working in Max, we could also use Live 11's Microtruner device inside Max, routing it to a VST, M4L, or AU device like so:
+
+![](assets/Screen%20Shot%202022-05-09%20at%209.12.55%20pm.png)

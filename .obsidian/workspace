@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Neurotheology, aliens, and understanding the immaterial.md",
+            "file": "Kidology, Metamodernism & Healing Division.md",
             "mode": "source",
             "source": false
           }
@@ -53,7 +53,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 225
+    "width": 397.5
   },
   "right": {
     "id": "ce3d68700557c778",
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Neurotheology, aliens, and understanding the immaterial.md",
+                "file": "Kidology, Metamodernism & Healing Division.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -86,7 +86,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Neurotheology, aliens, and understanding the immaterial.md",
+                "file": "Kidology, Metamodernism & Healing Division.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -112,15 +112,15 @@
   },
   "active": "509fb74ed8396bf6",
   "lastOpenFiles": [
+    "Kidology, Metamodernism & Healing Division.md",
+    "Easy Github credentials.md",
+    "Introduction to Max by way of Microtonality.md",
     "Neurotheology, aliens, and understanding the immaterial.md",
     "Tuning Sequences.md",
     "Hyperpop is smart..md",
     "Citing Suggestions 🥦🍽🥦.md",
-    "Introduction to Max by way of Microtonality.md",
     "Interfacing with distributed speaker arrays.md",
     "Composing in Virtual Spaces.md",
-    "Website todos.md",
-    "Metamodernism and the evolution of consciousness.md",
-    "How to start learning creative software development.md"
+    "Website todos.md"
   ]
 }
