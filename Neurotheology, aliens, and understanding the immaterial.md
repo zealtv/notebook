@@ -1,7 +1,7 @@
 ---
 title: Neurotheology, aliens, and interpreting the immaterial
 date: 2022-04-23
-lastmod: 2022-05-09T15:20
+lastmod: 2022-05-24T17:51
 draft: false
 ---
 ```
