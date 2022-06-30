@@ -1,7 +1,7 @@
 ---
 title: The Ariel Encounter
 date: 2022-05-24
-lastmod: 2022-05-25T13:57
+lastmod: 2022-05-25T14:02
 draft: false
 ---
 
