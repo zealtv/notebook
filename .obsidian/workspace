@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "UAPs and demonstrations of beauty.md",
+            "file": "Things we have not taken seriously enough.md",
             "mode": "source",
             "source": false
           }
@@ -53,7 +53,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 397.5
+    "width": 297.5
   },
   "right": {
     "id": "ce3d68700557c778",
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "UAPs and demonstrations of beauty.md",
+                "file": "Things we have not taken seriously enough.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -86,7 +86,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "UAPs and demonstrations of beauty.md",
+                "file": "Things we have not taken seriously enough.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -112,15 +112,15 @@
   },
   "active": "feaf3a39398c7039",
   "lastOpenFiles": [
+    "Things we have not taken seriously enough.md",
+    "Kidology, Metamodernism & Healing Division.md",
+    "Blind to the Third Mind.md",
+    "Imagining aliens into existence.md",
+    "Metahoax and Deniable Credibility.md",
+    "Jacques Vallee and The Popular Audience.md",
+    "Who is guiding the evolution of consciousness?.md",
     "UAPs and demonstrations of beauty.md",
-    "Deniable Credibility.md",
-    "-=EARWORM===- Music as a  symbiotic parasite..md",
-    "Patterns across perspectives.md",
-    "Eisenhower and the integration of materialism..md",
-    "The Ariel Encounter.md",
-    "-a-universe-of-relations-.md",
-    "lights, audio, control. openFrameworks, purr data, node red..md",
-    "The creative force.md",
-    "Easy Github credentials.md"
+    "Accelerating Dissonance.md",
+    "-=EARWORM===- Music as a  symbiotic parasite..md"
   ]
 }

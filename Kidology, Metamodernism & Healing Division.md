@@ -1,7 +1,7 @@
 ---
 title: Kidology, Metamodernism & Healing Division
 date: 2022-05-23
-lastmod: 2022-05-23T14:45
+lastmod: 2022-07-03T07:57
 ---
 
 {{<youtube byTqVABaHUE>}}
